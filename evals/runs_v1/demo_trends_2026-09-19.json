@@ -1,0 +1,351 @@
+{
+  "schema_version": "1.0",
+  "tool": "fetch_trends.py",
+  "tool_version": "0.1.0",
+  "fetched_date": "2026-09-19",
+  "mode": "offline",
+  "sources_enabled": [
+    "weibo",
+    "zhihu",
+    "baidu",
+    "hn"
+  ],
+  "notes": {
+    "hot_value_comparability": "各源热度口径不同，hot_value 仅在源内可比；跨源比较请用源内排名",
+    "aggregation": "dup_of 为跨源标题重复标记；聚类命名与选题建议由 agent 依 SKILL.md 生成",
+    "red_line": "只用公开接口，每源每次运行 1 个请求，不做全站爬取"
+  },
+  "summary": {
+    "total_items": 15,
+    "unique_items": 13,
+    "duplicate_items": 2,
+    "new_items": 11,
+    "sources_ok": 3,
+    "sources_unavailable": 1
+  },
+  "sources": [
+    {
+      "source": "weibo",
+      "display_name": "微博热搜",
+      "endpoint": "https://weibo.com/ajax/statuses/hot_band",
+      "status": "ok",
+      "error": null,
+      "requests": 0,
+      "hot_value_note": "微博热度值（num），仅源内可比",
+      "item_count": 5,
+      "items": [
+        {
+          "source": "weibo",
+          "rank": 1,
+          "title": "AI编程工具被曝上传用户代码，官方深夜回应",
+          "url": "https://s.weibo.com/weibo?q=%23AI%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E8%A2%AB%E6%9B%9D%E4%B8%8A%E4%BC%A0%E7%94%A8%E6%88%B7%E4%BB%A3%E7%A0%81%23",
+          "hot_value": 1873452,
+          "hot_value_raw": "1873452",
+          "hot_label": "爆",
+          "extra": {
+            "category": "科技"
+          },
+          "key": "967561b15b8deb1f",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 2,
+          "title": "新一代折叠屏手机发布",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%96%B0%E4%B8%80%E4%BB%A3%E6%8A%98%E5%8F%A0%E5%B1%8F%E6%89%8B%E6%9C%BA%E5%8F%91%E5%B8%83%23",
+          "hot_value": 964221,
+          "hot_value_raw": "964221",
+          "hot_label": null,
+          "extra": {
+            "category": null
+          },
+          "key": "b4ac26ce86698cb3",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 3,
+          "title": "台风“山陀儿”逼近华南沿海",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%8F%B0%E9%A3%8E%E5%B1%B1%E9%99%80%E5%84%BF%E9%80%BC%E8%BF%91%E5%8D%8E%E5%8D%97%E6%B2%BF%E6%B5%B7%23",
+          "hot_value": 812003,
+          "hot_value_raw": "812003",
+          "hot_label": "热",
+          "extra": {
+            "category": "民生"
+          },
+          "key": "78a748729721c4a0",
+          "dup_of": null,
+          "matched_seen_key": "synthetic0000000001",
+          "is_new": false,
+          "streak": 3,
+          "first_seen": "2026-09-17"
+        },
+        {
+          "source": "weibo",
+          "rank": 4,
+          "title": "全国养老服务新政落地",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%85%A8%E5%9B%BD%E5%85%BB%E8%80%81%E6%9C%8D%E5%8A%A1%E6%96%B0%E6%94%BF%E8%90%BD%E5%9C%B0%23",
+          "hot_value": 402118,
+          "hot_value_raw": "402118",
+          "hot_label": "新",
+          "extra": {
+            "category": null
+          },
+          "key": "bb8a32cbba100d4b",
+          "dup_of": null,
+          "matched_seen_key": "synthetic0000000002",
+          "is_new": false,
+          "streak": 2,
+          "first_seen": "2026-09-18"
+        },
+        {
+          "source": "weibo",
+          "rank": 5,
+          "title": "城市马拉松报名开启",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%9F%8E%E5%B8%82%E9%A9%AC%E6%8B%89%E6%9D%BE%E6%8A%A5%E5%90%8D%E5%BC%80%E5%90%AF%23",
+          "hot_value": 233977,
+          "hot_value_raw": "233977",
+          "hot_label": null,
+          "extra": {
+            "category": null
+          },
+          "key": "9c5aced1f10fc2e1",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "source": "zhihu",
+      "display_name": "知乎热榜",
+      "endpoint": "https://api.zhihu.com/topstory/hot-lists/total?limit=50",
+      "status": "ok",
+      "error": null,
+      "requests": 0,
+      "hot_value_note": "知乎热度（detail_text，如『1590 万热度』换算为数值），仅源内可比",
+      "item_count": 5,
+      "items": [
+        {
+          "source": "zhihu",
+          "rank": 1,
+          "title": "AI 编程工具被曝上传用户代码，官方深夜回应是否属实？",
+          "url": "https://www.zhihu.com/question/109001",
+          "hot_value": 48210000,
+          "hot_value_raw": "4821 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 412,
+            "comment_count": null,
+            "excerpt": "据网络爆料，某 AI 编程工具会在后台同步用户的本地代码仓库……"
+          },
+          "key": "d9331ff21c665eac",
+          "dup_of": "967561b15b8deb1f",
+          "dup_of_title": "AI编程工具被曝上传用户代码，官方深夜回应",
+          "dup_similarity": 0.909,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 2,
+          "title": "如何看待新一代折叠屏手机发布的影像方案？",
+          "url": "https://www.zhihu.com/question/109002",
+          "hot_value": 10320000,
+          "hot_value_raw": "1032 万热度",
+          "hot_label": "新",
+          "extra": {
+            "answer_count": 128,
+            "comment_count": null,
+            "excerpt": "发布会上重点讲了影像算法……"
+          },
+          "key": "ab797d7122072300",
+          "dup_of": "b4ac26ce86698cb3",
+          "dup_of_title": "新一代折叠屏手机发布",
+          "dup_similarity": 0.69,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 3,
+          "title": "远程办公三年后，团队协作发生了哪些变化？",
+          "url": "https://www.zhihu.com/question/109003",
+          "hot_value": 6650000,
+          "hot_value_raw": "665 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 87,
+            "comment_count": null,
+            "excerpt": "三年混合办公下来……"
+          },
+          "key": "f7c54b7b6b4375e7",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 4,
+          "title": "开源社区如何可持续地维护热门项目？",
+          "url": "https://www.zhihu.com/question/109004",
+          "hot_value": 5120000,
+          "hot_value_raw": "512 万热度",
+          "hot_label": "荐",
+          "extra": {
+            "answer_count": 55,
+            "comment_count": null,
+            "excerpt": "维护者倦怠的话题又被提起……"
+          },
+          "key": "f96e49d8a8d3c699",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 5,
+          "title": "零基础学数据分析还来得及吗？",
+          "url": "https://www.zhihu.com/question/109005",
+          "hot_value": 3090000,
+          "hot_value_raw": "309 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 33,
+            "comment_count": null,
+            "excerpt": "三十岁转行还可行吗……"
+          },
+          "key": "4475a2721fdcc98b",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "source": "baidu",
+      "display_name": "百度热搜",
+      "endpoint": "https://top.baidu.com/api/board?platform=wise&tab=realtime",
+      "status": "unavailable",
+      "error": "响应缺少 data 字段，接口可能改版或服务出错（status=500 Internal Server Error）",
+      "requests": 0,
+      "hot_value_note": "该端点不返回热度数值，仅源内排名（rank）可比",
+      "item_count": 0,
+      "items": []
+    },
+    {
+      "source": "hn",
+      "display_name": "HN 首页",
+      "endpoint": "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage={limit}",
+      "status": "ok",
+      "error": null,
+      "requests": 0,
+      "hot_value_note": "HN points（赞数），仅源内可比",
+      "item_count": 5,
+      "items": [
+        {
+          "source": "hn",
+          "rank": 1,
+          "title": "Show HN: I built a local-first note tool",
+          "url": "https://example.com/notes",
+          "hot_value": 356,
+          "hot_value_raw": "356",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 142,
+            "story_url": "https://news.ycombinator.com/item?id=9001"
+          },
+          "key": "4836460073bfe2ff",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 2,
+          "title": "The hidden cost of cloud egress",
+          "url": "https://news.ycombinator.com/item?id=9002",
+          "hot_value": 289,
+          "hot_value_raw": "289",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 201,
+            "story_url": "https://news.ycombinator.com/item?id=9002"
+          },
+          "key": "08a89d7f2865a7a9",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 3,
+          "title": "A visual guide to database indexing",
+          "url": "https://example.com/db-index",
+          "hot_value": 231,
+          "hot_value_raw": "231",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 64,
+            "story_url": "https://news.ycombinator.com/item?id=9003"
+          },
+          "key": "31ebb47d8444a951",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 4,
+          "title": "Why small teams ship faster",
+          "url": "https://example.com/small-teams",
+          "hot_value": 158,
+          "hot_value_raw": "158",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 97,
+            "story_url": "https://news.ycombinator.com/item?id=9004"
+          },
+          "key": "11588f8dcc00dea2",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 5,
+          "title": "SQLite in production: a field report",
+          "url": "https://example.com/sqlite-prod",
+          "hot_value": 122,
+          "hot_value_raw": "122",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 45,
+            "story_url": "https://news.ycombinator.com/item?id=9005"
+          },
+          "key": "7adba7f0bc3302f2",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    }
+  ]
+}

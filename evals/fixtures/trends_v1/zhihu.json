@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "target": {
+        "title": "AI 编程工具被曝上传用户代码，官方深夜回应是否属实？",
+        "url": "https://api.zhihu.com/questions/109001",
+        "answer_count": 412,
+        "follower_count": 2088,
+        "excerpt": "据网络爆料，某 AI 编程工具会在后台同步用户的本地代码仓库……"
+      },
+      "detail_text": "4821 万热度",
+      "card_label": {"type": "hot"}
+    },
+    {
+      "target": {
+        "title": "如何看待新一代折叠屏手机发布的影像方案？",
+        "url": "https://api.zhihu.com/questions/109002",
+        "answer_count": 128,
+        "follower_count": 764,
+        "excerpt": "发布会上重点讲了影像算法……"
+      },
+      "detail_text": "1032 万热度",
+      "card_label": {"type": "new"}
+    },
+    {
+      "target": {
+        "title": "远程办公三年后，团队协作发生了哪些变化？",
+        "url": "https://api.zhihu.com/questions/109003",
+        "answer_count": 87,
+        "follower_count": 341,
+        "excerpt": "三年混合办公下来……"
+      },
+      "detail_text": "665 万热度"
+    },
+    {
+      "target": {
+        "title": "开源社区如何可持续地维护热门项目？",
+        "url": "https://api.zhihu.com/questions/109004",
+        "answer_count": 55,
+        "follower_count": 190,
+        "excerpt": "维护者倦怠的话题又被提起……"
+      },
+      "detail_text": "512 万热度",
+      "card_label": {"type": "recommend"}
+    },
+    {
+      "target": {
+        "title": "零基础学数据分析还来得及吗？",
+        "url": "https://www.zhihu.com/question/109005",
+        "answer_count": 33,
+        "follower_count": 88,
+        "excerpt": "三十岁转行还可行吗……"
+      },
+      "detail_text": "309 万热度"
+    }
+  ]
+}

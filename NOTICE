@@ -1,0 +1,13 @@
+trend-digest-daily
+Copyright 2026 JuneYaooo
+
+This product includes original skill guidance, a deterministic public
+trending-list fetcher, and evaluation artifacts released under the Apache
+License, Version 2.0.
+
+Products named in references/benchmarks.md and references/sources.md identify
+sources of design lessons and public data endpoints only. Those products and
+any third-party materials remain subject to their own terms; nothing from them
+is redistributed in this repository. All evaluation fixtures are synthetic;
+trending-list content captured for demonstrations belongs to its original
+authors and is quoted by title and link only.

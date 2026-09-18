@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "runner": "evals/scripts/run_cases.py",
+  "case_file": "evals/cases_v1.jsonl",
+  "date": "2026-09-19",
+  "note": "t1-t7 为脚本层原子检查（离线夹具，不联网）；t8/t9 证据见 runs_v1 对应产物",
+  "results": {
+    "t1": {
+      "case_id": "t1",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0",
+          "passed": true,
+          "detail": "exit=0"
+        },
+        {
+          "check": "四源均在输出中",
+          "passed": true,
+          "detail": "['weibo', 'zhihu', 'baidu', 'hn']"
+        },
+        {
+          "check": "微博/知乎/HN ok 且有条目",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "百度标注不可用并给中文错误",
+          "passed": true,
+          "detail": "响应缺少 data 字段，接口可能改版或服务出错（status=500 Internal Server Error）"
+        },
+        {
+          "check": "汇总 15 条/重复 2/唯一 13",
+          "passed": true,
+          "detail": "{\"total_items\": 15, \"unique_items\": 13, \"duplicate_items\": 2, \"new_items\": 13, \"sources_ok\": 3, \"sources_unavailable\": 1}"
+        },
+        {
+          "check": "条目含 rank/title/url 规范字段",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t2": {
+      "case_id": "t2",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "标题变体命中缓存：台风 streak=3、非 NEW、first_seen 保留",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "昨日已见条目：养老服务 streak=2、非 NEW",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "新条目标 NEW",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "seen-out 6 行且 key 无重复（旧条目原地更新）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "已冷却条目保留在缓存",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t3": {
+      "case_id": "t3",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0（单源失败不拖垮整体）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "其他三源 items 不为空",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "百度错误为中文说明",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "汇总 sources_unavailable=1",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t4": {
+      "case_id": "t4",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0（有空榜源成功即成功）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "知乎/HN 状态 ok 且 0 条",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "汇总全零且不崩溃",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "输出为合法 JSON（可被下游消费）",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t5": {
+      "case_id": "t5",
+      "passed": true,
+      "checks": [
+        {
+          "check": "全部源不可用时退出码 3",
+          "passed": true,
+          "detail": "exit=3"
+        },
+        {
+          "check": "仍输出合法 JSON",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "每源给出中文错误",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "sources_ok=0",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t6": {
+      "case_id": "t6",
+      "passed": true,
+      "checks": [
+        {
+          "check": "两次 --offline 运行退出码 0",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "输出 sha256 一致",
+          "passed": true,
+          "detail": "9a8c85ecde47948d…"
+        }
+      ]
+    },
+    "t7": {
+      "case_id": "t7",
+      "passed": true,
+      "checks": [
+        {
+          "check": "知乎 2 条被标记跨源重复",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "dup_of 主条目均来自微博且相似度≥0.5",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "不同事件未被误并（知乎其余 3 条独立）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "英文与中文条目零误并",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    }
+  },
+  "passed_cases": 7,
+  "total_cases": 7
+}

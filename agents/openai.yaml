@@ -1,0 +1,7 @@
+interface:
+  display_name: "自媒体每日选题雷达"
+  short_description: "多平台热榜去重聚类，出一份每日选题清单"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#C2410C"
+  default_prompt: "Use $trend-digest-daily to pull today's public trending lists, dedupe and cluster them, and produce a daily topic-pick report matched to my blogger domains."

@@ -1,0 +1,54 @@
+{
+  "ok": 1,
+  "data": {
+    "realtime": [
+      {
+        "word": "#AI编程工具被曝上传用户代码#",
+        "note": "AI编程工具被曝上传用户代码，官方深夜回应",
+        "num": 1873452,
+        "icon_desc": "爆",
+        "word_scheme": "#AI编程工具被曝上传用户代码#",
+        "realpos": 1,
+        "category": "科技"
+      },
+      {
+        "word": "#新一代折叠屏手机发布#",
+        "note": "",
+        "num": 964221,
+        "word_scheme": "#新一代折叠屏手机发布#",
+        "realpos": 2
+      },
+      {
+        "word": "#台风山陀儿逼近华南沿海#",
+        "note": "台风“山陀儿”逼近华南沿海",
+        "num": 812003,
+        "icon_desc": "热",
+        "word_scheme": "#台风山陀儿逼近华南沿海#",
+        "realpos": 3,
+        "category": "民生"
+      },
+      {
+        "word": "#全国养老服务新政落地#",
+        "note": "",
+        "num": 402118,
+        "icon_desc": "新",
+        "word_scheme": "#全国养老服务新政落地#",
+        "realpos": 4
+      },
+      {
+        "word": "#某电商平台限时大促#",
+        "note": "广告",
+        "num": 999999,
+        "is_ad": 1,
+        "word_scheme": "#某电商平台限时大促#"
+      },
+      {
+        "word": "#城市马拉松报名开启#",
+        "note": "",
+        "num": 233977,
+        "word_scheme": "#城市马拉松报名开启#",
+        "realpos": 5
+      }
+    ]
+  }
+}

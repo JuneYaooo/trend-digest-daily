@@ -1,0 +1,39 @@
+{
+  "hits": [
+    {
+      "title": "Show HN: I built a local-first note tool",
+      "url": "https://example.com/notes",
+      "points": 356,
+      "num_comments": 142,
+      "objectID": "9001"
+    },
+    {
+      "title": "The hidden cost of cloud egress",
+      "url": null,
+      "points": 289,
+      "num_comments": 201,
+      "objectID": "9002"
+    },
+    {
+      "title": "A visual guide to database indexing",
+      "url": "https://example.com/db-index",
+      "points": 231,
+      "num_comments": 64,
+      "objectID": "9003"
+    },
+    {
+      "title": "Why small teams ship faster",
+      "url": "https://example.com/small-teams",
+      "points": 158,
+      "num_comments": 97,
+      "objectID": "9004"
+    },
+    {
+      "title": "SQLite in production: a field report",
+      "url": "https://example.com/sqlite-prod",
+      "points": 122,
+      "num_comments": 45,
+      "objectID": "9005"
+    }
+  ]
+}

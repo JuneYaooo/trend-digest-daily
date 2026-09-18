@@ -1,0 +1,33 @@
+{
+  "data": {
+    "children": [
+      {
+        "data": {
+          "title": "How I doubled my newsletter open rate",
+          "permalink": "/r/socialmedia/comments/abc1/how_i_doubled_my_newsletter_open_rate/",
+          "score": 2841,
+          "num_comments": 318,
+          "stickied": false
+        }
+      },
+      {
+        "data": {
+          "title": "Announcement: rule update for September",
+          "permalink": "/r/socialmedia/comments/xyz9/announcement_rule_update/",
+          "score": 12,
+          "num_comments": 4,
+          "stickied": true
+        }
+      },
+      {
+        "data": {
+          "title": "Platform algorithm changes megathread",
+          "permalink": "/r/socialmedia/comments/def2/platform_algorithm_changes/",
+          "score": 1507,
+          "num_comments": 640,
+          "stickied": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "suite": "trend-digest-daily-v1",
+  "case_file": "cases_v1.jsonl",
+  "rubric_file": "rubric_v1.md",
+  "layers": {
+    "script_behavior": {
+      "runner": "python3 evals/scripts/run_cases.py（在仓库根目录执行），对 evals/fixtures/ 的合成夹具逐条核对 cases_v1.jsonl 的 required/forbidden 原子检查，结果写入 runs_v1/case_results_v1.json",
+      "runs_per_case": 1,
+      "note": "t6 确定性用例在单次执行内连跑两遍并比对输出 sha256；全部离线，不访问网络"
+    },
+    "live_fetch": {
+      "runner": "python3 scripts/fetch_trends.py --date 2026-09-19 --output evals/runs_v1/live_trends_2026-09-19.json --seen data/seen.jsonl --seen-out data/seen.jsonl",
+      "runs_per_case": 1,
+      "network_policy": "每源恰 1 个 HTTP 请求、超时 10s、无重试；本评测日为该配置首次运行（首日 NEW 基线）"
+    },
+    "agent_workflow": {
+      "runner": "ZCode CLI 中的 Agent 依 SKILL.md 与 references/report-format.md 把当日 JSON 渲染为日报（runs_v1/live_report_2026-09-19.md 与 runs_v1/demo_report_2026-09-19.md），报告引用的 URL/数字经脚本回核存在于 JSON",
+      "runs_per_case": 1
+    }
+  },
+  "conditions": ["skill"],
+  "baseline_note": "基线是博主人工逐个 App 刷 4-6 个热榜并手工誊写选题表（人工 SOP 约 30-60 分钟/天，调研见需求来源），无法在同一夹具上自动化复现，故不作 baseline/skill 数值对比。",
+  "judging": {
+    "judge": "开发同一 Agent（GLM / ZCode CLI）自评，标 review_status=model_only",
+    "blind_condition_labels": false,
+    "human_review": "尚未进行独立人工复核，是当前评测的主要限制"
+  },
+  "pass_rule": {
+    "critical_failure_must_be_false": true,
+    "script_layer": "全部原子检查通过",
+    "agent_layer_minimum_mean_dimension_score": 3.0
+  },
+  "current_run": {
+    "status": "completed",
+    "date": "2026-09-19",
+    "model": "GLM（ZCode CLI 内置模型）",
+    "skill_version": "0.1.0",
+    "environment": {
+      "os": "macOS 25.5.0 arm64 (Darwin)",
+      "python": "3.13.2",
+      "network": "t8 为真实网络拉取（4 请求，每源 1 个）；其余用例离线"
+    },
+    "artifacts": [
+      "runs_v1/case_results_v1.json",
+      "runs_v1/live_trends_2026-09-19.json",
+      "runs_v1/live_report_2026-09-19.md",
+      "runs_v1/demo_trends_2026-09-19.json",
+      "runs_v1/demo_report_2026-09-19.md"
+    ]
+  }
+}

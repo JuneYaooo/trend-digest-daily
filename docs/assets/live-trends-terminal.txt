@@ -1,0 +1,8 @@
+# 2026-09-19 · macOS arm64 · Python 3.13 · 大陆网络真实拉取（每源 1 个请求，超时 10s，无重试）
+$ python3 scripts/fetch_trends.py --date 2026-09-19 --output evals/runs_v1/live_trends_2026-09-19.json --seen data/seen.jsonl --seen-out data/seen.jsonl
+[g][微博热搜] 成功 · 30 条（NEW 30）
+[g][知乎热榜] 成功 · 30 条（NEW 30）
+[g][百度热搜] 成功 · 30 条（NEW 29）
+[g][HN 首页] 成功 · 30 条（NEW 30）
+[g]共 120 条 → 去重后 119 条（跨源重复 1，NEW 119）；JSON 已写入 evals/runs_v1/live_trends_2026-09-19.json
+exit_code=0

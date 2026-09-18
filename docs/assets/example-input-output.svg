@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="t d">
+  <title id="t">输入输出对照</title>
+  <desc id="d">左侧为脚本输出的规范化热榜 JSON 节选，右侧为 agent 生成的选题卡节选，均取自 2026-09-19 真实运行</desc>
+  <rect width="1440" height="760" fill="#F4F1E8"/>
+  <text x="80" y="64" fill="#3A3A38" font-family="Arial, 'PingFang SC', sans-serif" font-size="26" font-weight="800">输入：fetch_trends.py 规范化 JSON（2026-09-19 真实拉取节选）</text>
+  <rect x="80" y="92" width="600" height="590" rx="8" fill="#171A19"/>
+  <text x="112" y="140" fill="#8FE3D0" font-family="Menlo, monospace" font-size="16">"summary": { "total_items": 120,</text>
+  <text x="196" y="166" fill="#8FE3D0" font-family="Menlo, monospace" font-size="16">"unique_items": 119, "duplicate_items": 1,</text>
+  <text x="196" y="192" fill="#8FE3D0" font-family="Menlo, monospace" font-size="16">"new_items": 119, "sources_ok": 4 }</text>
+  <text x="112" y="244" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">{ "source": "zhihu", "rank": 1,</text>
+  <text x="130" y="270" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"title": "有消息传智谱Zcode会上传用户</text>
+  <text x="148" y="296" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">的全量Git操作，这是否属实？",</text>
+  <text x="130" y="322" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"hot_value": 15740000,        ← detail_text「1574 万热度」</text>
+  <text x="130" y="348" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"hot_label": "热", "is_new": true }</text>
+  <text x="112" y="400" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">{ "source": "weibo", "rank": 1,</text>
+  <text x="130" y="426" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"title": "中国的小偷为何断崖式下降",</text>
+  <text x="130" y="452" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"hot_value": 398487, "hot_label": "热" }</text>
+  <text x="112" y="504" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">{ "source": "baidu", "rank": 9,</text>
+  <text x="130" y="530" fill="#C9D1D9" font-family="Menlo, monospace" font-size="16">"title": "美驻日使馆9月18日发帖 日本网民破防",</text>
+  <text x="130" y="556" fill="#F0C94B" font-family="Menlo, monospace" font-size="16">"dup_of": "…", "dup_similarity": 0.875 }  ← 跨源重复标记</text>
+  <text x="112" y="608" fill="#8A9199" font-family="Menlo, monospace" font-size="15">// 各源 hot_value_note：仅源内可比，不跨源换算</text>
+  <text x="112" y="640" fill="#8A9199" font-family="Menlo, monospace" font-size="15">// requests 恒 ≤ 1（每源每次 1 个请求）</text>
+  <text x="760" y="64" fill="#3A3A38" font-family="Arial, 'PingFang SC', sans-serif" font-size="26" font-weight="800">输出：每日选题建议（live_report 节选）</text>
+  <rect x="760" y="92" width="600" height="590" rx="8" fill="#C2410C"/>
+  <text x="792" y="140" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" font-weight="800">### 1. 智谱 Zcode 被传上传用户全量 Git 操作</text>
+  <text x="792" y="172" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">｜匹配度★★★★★｜AI 工具与效率</text>
+  <text x="792" y="216" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">· 热度证据：知乎#1（热，1574 万热度）；</text>
+  <text x="806" y="242" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">同主题海外呼应：HN#1 AI scraping 报道（748 points，未合并）</text>
+  <text x="792" y="286" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">· 为什么和你有关：命中「AI / 编程」关键词，</text>
+  <text x="806" y="312" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">读者正在用同类工具写代码</text>
+  <text x="792" y="356" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">· 可写角度：①数据采集设置自查清单 ②企业接入合规</text>
+  <text x="806" y="382" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">③中外训练数据边界对照</text>
+  <text x="792" y="426" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">· 时效窗口：24h 内（热标签，以官方回应为准）</text>
+  <text x="792" y="470" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">· 链接：知乎原帖｜HN 原帖</text>
+  <text x="792" y="530" fill="#F5B79B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">其余：微短剧 AI 占九成 ★★★★★｜永和豆浆账号翻车 ★★★★★｜</text>
+  <text x="792" y="556" fill="#F5B79B" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">高中生自制综艺 ★★★★｜HN AI 工具三连 ★★★★</text>
+  <text x="792" y="608" fill="#F5B79B" font-family="Arial, 'PingFang SC', sans-serif" font-size="15">次级观察 8 条 · 全源速览 · 趋势追踪（首日基线）· 源状态 4/4 ok</text>
+  <text x="80" y="722" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">两栏均逐字取自仓库内真实运行产物 evals/runs_v1/（live_trends_2026-09-19.json 与 live_report_2026-09-19.md）；热榜条目版权归原作者</text>
+</svg>

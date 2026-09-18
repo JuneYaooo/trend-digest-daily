@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="t d">
+  <title id="t">trend-digest-daily</title>
+  <desc id="d">雷达扫描多平台热榜，产出每日选题</desc>
+  <rect width="128" height="128" rx="24" fill="#1A1D21"/>
+  <g fill="none" stroke="#C2410C">
+    <circle cx="64" cy="64" r="18" stroke-width="3" opacity="0.9"/>
+    <circle cx="64" cy="64" r="34" stroke-width="3" opacity="0.55"/>
+    <circle cx="64" cy="64" r="50" stroke-width="3" opacity="0.3"/>
+    <line x1="64" y1="64" x2="103" y2="35" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g fill="#F59E0B">
+    <circle cx="64" cy="64" r="5"/>
+    <circle cx="86" cy="78" r="4" opacity="0.85"/>
+    <circle cx="40" cy="42" r="4" opacity="0.7"/>
+    <circle cx="82" cy="38" r="4" opacity="0.55"/>
+  </g>
+  <text x="64" y="120" text-anchor="middle" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="13" font-weight="700">选题雷达</text>
+</svg>
