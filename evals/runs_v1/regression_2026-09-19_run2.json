@@ -1,0 +1,2324 @@
+{
+  "schema_version": "1.0",
+  "tool": "fetch_trends.py",
+  "tool_version": "0.1.0",
+  "fetched_date": "2026-09-19",
+  "mode": "live",
+  "sources_enabled": [
+    "weibo",
+    "zhihu",
+    "baidu",
+    "hn"
+  ],
+  "notes": {
+    "hot_value_comparability": "各源热度口径不同，hot_value 仅在源内可比；跨源比较请用源内排名",
+    "aggregation": "dup_of 为跨源标题重复标记；聚类命名与选题建议由 agent 依 SKILL.md 生成",
+    "red_line": "只用公开接口，每源每次运行 1 个请求，不做全站爬取"
+  },
+  "summary": {
+    "total_items": 120,
+    "unique_items": 119,
+    "duplicate_items": 1,
+    "new_items": 3,
+    "sources_ok": 4,
+    "sources_unavailable": 0
+  },
+  "sources": [
+    {
+      "source": "weibo",
+      "display_name": "微博热搜",
+      "endpoint": "https://weibo.com/ajax/statuses/hot_band",
+      "status": "ok",
+      "error": null,
+      "requests": 1,
+      "hot_value_note": "微博热度值（num），仅源内可比",
+      "item_count": 30,
+      "items": [
+        {
+          "source": "weibo",
+          "rank": 1,
+          "title": "梅毒越来越困扰年轻人",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%A2%85%E6%AF%92%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%9B%B0%E6%89%B0%E5%B9%B4%E8%BD%BB%E4%BA%BA%23",
+          "hot_value": 1504106,
+          "hot_value_raw": "1504106",
+          "hot_label": "热",
+          "extra": {
+            "category": "健康医疗"
+          },
+          "key": "cc775896d56bef28",
+          "dup_of": null,
+          "matched_seen_key": "cc775896d56bef28",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 2,
+          "title": "许兰香被发卖青楼",
+          "url": "https://s.weibo.com/weibo?q=%23%E8%AE%B8%E5%85%B0%E9%A6%99%E8%A2%AB%E5%8F%91%E5%8D%96%E9%9D%92%E6%A5%BC%23",
+          "hot_value": 882680,
+          "hot_value_raw": "882680",
+          "hot_label": "热",
+          "extra": {
+            "category": "剧集"
+          },
+          "key": "6539802dad0dfc49",
+          "dup_of": null,
+          "matched_seen_key": "6539802dad0dfc49",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 3,
+          "title": "斑驳旧物铭刻90多年前不屈抗争",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%96%91%E9%A9%B3%E6%97%A7%E7%89%A9%E9%93%AD%E5%88%BB90%E5%A4%9A%E5%B9%B4%E5%89%8D%E4%B8%8D%E5%B1%88%E6%8A%97%E4%BA%89%23",
+          "hot_value": 714337,
+          "hot_value_raw": "714337",
+          "hot_label": null,
+          "extra": {
+            "category": "民生新闻"
+          },
+          "key": "0ce8aced0dce42bf",
+          "dup_of": null,
+          "matched_seen_key": "0ce8aced0dce42bf",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 4,
+          "title": "中国男篮队长胡明轩赛后发声",
+          "url": "https://s.weibo.com/weibo?q=%23%E4%B8%AD%E5%9B%BD%E7%94%B7%E7%AF%AE%E9%98%9F%E9%95%BF%E8%83%A1%E6%98%8E%E8%BD%A9%E8%B5%9B%E5%90%8E%E5%8F%91%E5%A3%B0%23",
+          "hot_value": 666433,
+          "hot_value_raw": "666433",
+          "hot_label": null,
+          "extra": {
+            "category": "体育"
+          },
+          "key": "17aff7ef0de9b7a8",
+          "dup_of": null,
+          "matched_seen_key": "17aff7ef0de9b7a8",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 5,
+          "title": "中国的小偷为何断崖式下降",
+          "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B0%8F%E5%81%B7%E4%B8%BA%E4%BD%95%E6%96%AD%E5%B4%96%E5%BC%8F%E4%B8%8B%E9%99%8D",
+          "hot_value": 609429,
+          "hot_value_raw": "609429",
+          "hot_label": null,
+          "extra": {
+            "category": "民生新闻"
+          },
+          "key": "0ebb814fb958395b",
+          "dup_of": null,
+          "matched_seen_key": "0ebb814fb958395b",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 6,
+          "title": "韩国选手听到朝鲜国歌集体慌乱",
+          "url": "https://s.weibo.com/weibo?q=%23%E9%9F%A9%E5%9B%BD%E9%80%89%E6%89%8B%E5%90%AC%E5%88%B0%E6%9C%9D%E9%B2%9C%E5%9B%BD%E6%AD%8C%E9%9B%86%E4%BD%93%E6%85%8C%E4%B9%B1%23",
+          "hot_value": 432772,
+          "hot_value_raw": "432772",
+          "hot_label": null,
+          "extra": {
+            "category": "体育"
+          },
+          "key": "e6276698bdb6c191",
+          "dup_of": null,
+          "matched_seen_key": "e6276698bdb6c191",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 7,
+          "title": "周翊然问孙怡的腿有没有一米二",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%91%A8%E7%BF%8A%E7%84%B6%E9%97%AE%E5%AD%99%E6%80%A1%E7%9A%84%E8%85%BF%E6%9C%89%E6%B2%A1%E6%9C%89%E4%B8%80%E7%B1%B3%E4%BA%8C%23",
+          "hot_value": 313184,
+          "hot_value_raw": "313184",
+          "hot_label": "新",
+          "extra": {
+            "category": "综艺"
+          },
+          "key": "cff8ee2e407c91c1",
+          "dup_of": null,
+          "matched_seen_key": "cff8ee2e407c91c1",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 8,
+          "title": "特朗普称获格陵兰岛永久安全控制权",
+          "url": "https://s.weibo.com/weibo?q=%23%E7%89%B9%E6%9C%97%E6%99%AE%E7%A7%B0%E8%8E%B7%E6%A0%BC%E9%99%B5%E5%85%B0%E5%B2%9B%E6%B0%B8%E4%B9%85%E5%AE%89%E5%85%A8%E6%8E%A7%E5%88%B6%E6%9D%83%23",
+          "hot_value": 301131,
+          "hot_value_raw": "301131",
+          "hot_label": null,
+          "extra": {
+            "category": "国际时政"
+          },
+          "key": "9a63ee58c2f87362",
+          "dup_of": null,
+          "matched_seen_key": "9a63ee58c2f87362",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 9,
+          "title": "亚运组委会致歉",
+          "url": "https://s.weibo.com/weibo?q=%23%E4%BA%9A%E8%BF%90%E7%BB%84%E5%A7%94%E4%BC%9A%E8%87%B4%E6%AD%89%23",
+          "hot_value": 267730,
+          "hot_value_raw": "267730",
+          "hot_label": null,
+          "extra": {
+            "category": "体育"
+          },
+          "key": "5e33c9e9e834aa65",
+          "dup_of": null,
+          "matched_seen_key": "5e33c9e9e834aa65",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 10,
+          "title": "菲船加速冲撞中国海警船现场视频",
+          "url": "https://s.weibo.com/weibo?q=%23%E8%8F%B2%E8%88%B9%E5%8A%A0%E9%80%9F%E5%86%B2%E6%92%9E%E4%B8%AD%E5%9B%BD%E6%B5%B7%E8%AD%A6%E8%88%B9%E7%8E%B0%E5%9C%BA%E8%A7%86%E9%A2%91%23",
+          "hot_value": 251726,
+          "hot_value_raw": "251726",
+          "hot_label": null,
+          "extra": {
+            "category": "国际时政"
+          },
+          "key": "9873aae18978950d",
+          "dup_of": null,
+          "matched_seen_key": "9873aae18978950d",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 11,
+          "title": "张凯毅官宣离婚",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%BC%A0%E5%87%AF%E6%AF%85%E5%AE%98%E5%AE%A3%E7%A6%BB%E5%A9%9A%23",
+          "hot_value": 249569,
+          "hot_value_raw": "249569",
+          "hot_label": "新",
+          "extra": {
+            "category": "艺人"
+          },
+          "key": "2fcf551527fa0e60",
+          "dup_of": null,
+          "matched_seen_key": "2fcf551527fa0e60",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 12,
+          "title": "郑合惠子没有感情全是演技",
+          "url": "https://s.weibo.com/weibo?q=%23%E9%83%91%E5%90%88%E6%83%A0%E5%AD%90%E6%B2%A1%E6%9C%89%E6%84%9F%E6%83%85%E5%85%A8%E6%98%AF%E6%BC%94%E6%8A%80%23",
+          "hot_value": 237630,
+          "hot_value_raw": "237630",
+          "hot_label": null,
+          "extra": {
+            "category": "剧集"
+          },
+          "key": "fa737f91295c1628",
+          "dup_of": null,
+          "matched_seen_key": "fa737f91295c1628",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 13,
+          "title": "物业暴力阻拦业主回家",
+          "url": "https://s.weibo.com/weibo?q=%E7%89%A9%E4%B8%9A%E6%9A%B4%E5%8A%9B%E9%98%BB%E6%8B%A6%E4%B8%9A%E4%B8%BB%E5%9B%9E%E5%AE%B6",
+          "hot_value": 230408,
+          "hot_value_raw": "230408",
+          "hot_label": null,
+          "extra": {
+            "category": "民生新闻"
+          },
+          "key": "516f2fb01764541b",
+          "dup_of": null,
+          "matched_seen_key": "516f2fb01764541b",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 14,
+          "title": "池昌旭林珍娜是关系很铁的好友关系",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%B1%A0%E6%98%8C%E6%97%AD%E6%9E%97%E7%8F%8D%E5%A8%9C%E6%98%AF%E5%85%B3%E7%B3%BB%E5%BE%88%E9%93%81%E7%9A%84%E5%A5%BD%E5%8F%8B%E5%85%B3%E7%B3%BB%23",
+          "hot_value": 225086,
+          "hot_value_raw": "225086",
+          "hot_label": null,
+          "extra": {
+            "category": "艺人"
+          },
+          "key": "2bf9dfa70a4802a2",
+          "dup_of": null,
+          "matched_seen_key": "2bf9dfa70a4802a2",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 15,
+          "title": "本届亚运会混乱程度",
+          "url": "https://s.weibo.com/weibo?q=%E6%9C%AC%E5%B1%8A%E4%BA%9A%E8%BF%90%E4%BC%9A%E6%B7%B7%E4%B9%B1%E7%A8%8B%E5%BA%A6",
+          "hot_value": 221704,
+          "hot_value_raw": "221704",
+          "hot_label": null,
+          "extra": {
+            "category": "体育"
+          },
+          "key": "9492edd81fb57f23",
+          "dup_of": null,
+          "matched_seen_key": "9492edd81fb57f23",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 16,
+          "title": "王一博嘉人十月刊封面宣发节奏",
+          "url": "https://s.weibo.com/weibo?q=%23%E7%8E%8B%E4%B8%80%E5%8D%9A%E5%98%89%E4%BA%BA%E5%8D%81%E6%9C%88%E5%88%8A%E5%B0%81%E9%9D%A2%E5%AE%A3%E5%8F%91%E8%8A%82%E5%A5%8F%23",
+          "hot_value": 210798,
+          "hot_value_raw": "210798",
+          "hot_label": null,
+          "extra": {
+            "category": "时尚"
+          },
+          "key": "d315b1728fd1dfda",
+          "dup_of": null,
+          "matched_seen_key": "d315b1728fd1dfda",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 17,
+          "title": "中方9月19日至23日赴美经贸磋商",
+          "url": "https://s.weibo.com/weibo?q=%23%E4%B8%AD%E6%96%B99%E6%9C%8819%E6%97%A5%E8%87%B323%E6%97%A5%E8%B5%B4%E7%BE%8E%E7%BB%8F%E8%B4%B8%E7%A3%8B%E5%95%86%23",
+          "hot_value": 203588,
+          "hot_value_raw": "203588",
+          "hot_label": "新",
+          "extra": {
+            "category": "国内时政"
+          },
+          "key": "f99483291faedaa6",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 18,
+          "title": "沙特首都利雅得遭空袭",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%B2%99%E7%89%B9%E9%A6%96%E9%83%BD%E5%88%A9%E9%9B%85%E5%BE%97%E9%81%AD%E7%A9%BA%E8%A2%AD%23",
+          "hot_value": 201372,
+          "hot_value_raw": "201372",
+          "hot_label": "新",
+          "extra": {
+            "category": "国际时政"
+          },
+          "key": "0fd00c75baf24042",
+          "dup_of": null,
+          "matched_seen_key": "0fd00c75baf24042",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 19,
+          "title": "吕蕺儿当花魁救了兰香",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%90%95%E8%95%BA%E5%84%BF%E5%BD%93%E8%8A%B1%E9%AD%81%E6%95%91%E4%BA%86%E5%85%B0%E9%A6%99%23",
+          "hot_value": 201164,
+          "hot_value_raw": "201164",
+          "hot_label": "新",
+          "extra": {
+            "category": "作品衍生"
+          },
+          "key": "503732bac1a66e49",
+          "dup_of": null,
+          "matched_seen_key": "503732bac1a66e49",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 20,
+          "title": "旧手机格式化也不安全",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%97%A7%E6%89%8B%E6%9C%BA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B9%9F%E4%B8%8D%E5%AE%89%E5%85%A8%23",
+          "hot_value": 199985,
+          "hot_value_raw": "199985",
+          "hot_label": "新",
+          "extra": {
+            "category": "数码"
+          },
+          "key": "f04a5f92a3834e53",
+          "dup_of": null,
+          "matched_seen_key": "f04a5f92a3834e53",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 21,
+          "title": "张凯毅 张煜东",
+          "url": "https://s.weibo.com/weibo?q=%E5%BC%A0%E5%87%AF%E6%AF%85%20%E5%BC%A0%E7%85%9C%E4%B8%9C",
+          "hot_value": 199646,
+          "hot_value_raw": "199646",
+          "hot_label": "新",
+          "extra": {
+            "category": "网红"
+          },
+          "key": "dae48813fbc79766",
+          "dup_of": null,
+          "matched_seen_key": "dae48813fbc79766",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 22,
+          "title": "商务部就中美经贸磋商答问",
+          "url": "https://s.weibo.com/weibo?q=%E5%95%86%E5%8A%A1%E9%83%A8%E5%B0%B1%E4%B8%AD%E7%BE%8E%E7%BB%8F%E8%B4%B8%E7%A3%8B%E5%95%86%E7%AD%94%E9%97%AE",
+          "hot_value": 198745,
+          "hot_value_raw": "198745",
+          "hot_label": "新",
+          "extra": {
+            "category": "国内时政"
+          },
+          "key": "c37d4f694ce5c8db",
+          "dup_of": null,
+          "matched_seen_key": "c37d4f694ce5c8db",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 23,
+          "title": "经济上行期是一种感觉",
+          "url": "https://s.weibo.com/weibo?q=%23%E7%BB%8F%E6%B5%8E%E4%B8%8A%E8%A1%8C%E6%9C%9F%E6%98%AF%E4%B8%80%E7%A7%8D%E6%84%9F%E8%A7%89%23",
+          "hot_value": 198457,
+          "hot_value_raw": "198457",
+          "hot_label": "新",
+          "extra": {
+            "category": "情感"
+          },
+          "key": "ca272710a7631488",
+          "dup_of": null,
+          "matched_seen_key": "ca272710a7631488",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 24,
+          "title": "亚马尔无视凯恩",
+          "url": "https://s.weibo.com/weibo?q=%23%E4%BA%9A%E9%A9%AC%E5%B0%94%E6%97%A0%E8%A7%86%E5%87%AF%E6%81%A9%23",
+          "hot_value": 197221,
+          "hot_value_raw": "197221",
+          "hot_label": "新",
+          "extra": {
+            "category": "体育"
+          },
+          "key": "f9fec660137e2ec4",
+          "dup_of": null,
+          "matched_seen_key": "f9fec660137e2ec4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 25,
+          "title": "女子咳痰3年竟因洗澡时1个小动作",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%A5%B3%E5%AD%90%E5%92%B3%E7%97%B03%E5%B9%B4%E7%AB%9F%E5%9B%A0%E6%B4%97%E6%BE%A1%E6%97%B61%E4%B8%AA%E5%B0%8F%E5%8A%A8%E4%BD%9C%23",
+          "hot_value": 196606,
+          "hot_value_raw": "196606",
+          "hot_label": null,
+          "extra": {
+            "category": "民生新闻"
+          },
+          "key": "89234ad93c0736e4",
+          "dup_of": null,
+          "matched_seen_key": "89234ad93c0736e4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 26,
+          "title": "晚上11点是睡眠分水岭",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%99%9A%E4%B8%8A11%E7%82%B9%E6%98%AF%E7%9D%A1%E7%9C%A0%E5%88%86%E6%B0%B4%E5%B2%AD%23",
+          "hot_value": 196014,
+          "hot_value_raw": "196014",
+          "hot_label": null,
+          "extra": {
+            "category": "健康医疗"
+          },
+          "key": "704defe1b9fa0170",
+          "dup_of": null,
+          "matched_seen_key": "704defe1b9fa0170",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 27,
+          "title": "好清醒的顶级认知",
+          "url": "https://s.weibo.com/weibo?q=%E5%A5%BD%E6%B8%85%E9%86%92%E7%9A%84%E9%A1%B6%E7%BA%A7%E8%AE%A4%E7%9F%A5",
+          "hot_value": 195403,
+          "hot_value_raw": "195403",
+          "hot_label": null,
+          "extra": {
+            "category": "情感"
+          },
+          "key": "99e3ee97510d3c65",
+          "dup_of": null,
+          "matched_seen_key": "99e3ee97510d3c65",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 28,
+          "title": "田栩宁专辑上线",
+          "url": "https://s.weibo.com/weibo?q=%E7%94%B0%E6%A0%A9%E5%AE%81%E4%B8%93%E8%BE%91%E4%B8%8A%E7%BA%BF",
+          "hot_value": 194348,
+          "hot_value_raw": "194348",
+          "hot_label": "新",
+          "extra": {
+            "category": "音乐"
+          },
+          "key": "3aeef1b83b255269",
+          "dup_of": null,
+          "matched_seen_key": "3aeef1b83b255269",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 29,
+          "title": "第一次直观感受到低碳脸的杀伤力",
+          "url": "https://s.weibo.com/weibo?q=%23%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9B%B4%E8%A7%82%E6%84%9F%E5%8F%97%E5%88%B0%E4%BD%8E%E7%A2%B3%E8%84%B8%E7%9A%84%E6%9D%80%E4%BC%A4%E5%8A%9B%23",
+          "hot_value": 194175,
+          "hot_value_raw": "194175",
+          "hot_label": null,
+          "extra": {
+            "category": "美妆"
+          },
+          "key": "8f5a3d7f758590ca",
+          "dup_of": null,
+          "matched_seen_key": "8f5a3d7f758590ca",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "weibo",
+          "rank": 30,
+          "title": "女子称失踪闺蜜托梦暗示尸骸位置",
+          "url": "https://s.weibo.com/weibo?q=%23%E5%A5%B3%E5%AD%90%E7%A7%B0%E5%A4%B1%E8%B8%AA%E9%97%BA%E8%9C%9C%E6%89%98%E6%A2%A6%E6%9A%97%E7%A4%BA%E5%B0%B8%E9%AA%B8%E4%BD%8D%E7%BD%AE%23",
+          "hot_value": 193574,
+          "hot_value_raw": "193574",
+          "hot_label": null,
+          "extra": {
+            "category": "民生新闻"
+          },
+          "key": "dcd969be4bfe35c9",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "source": "zhihu",
+      "display_name": "知乎热榜",
+      "endpoint": "https://api.zhihu.com/topstory/hot-lists/total?limit=50",
+      "status": "ok",
+      "error": null,
+      "requests": 1,
+      "hot_value_note": "知乎热度（detail_text，如『1590 万热度』换算为数值），仅源内可比",
+      "item_count": 30,
+      "items": [
+        {
+          "source": "zhihu",
+          "rank": 1,
+          "title": "有消息传智谱Zcode会上传用户的全量Git操作，这是否属实？",
+          "url": "https://www.zhihu.com/question/2084291380302574171",
+          "hot_value": 14130000,
+          "hot_value_raw": "1413 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 403,
+            "comment_count": 0,
+            "excerpt": "智谱ZCode被质疑“偷传代码”：官方回应称问题已修复，将开源代码库、引入第三方审查 智谱ZCode被质疑“偷传代码”："
+          },
+          "key": "800e711e132c5296",
+          "dup_of": null,
+          "matched_seen_key": "800e711e132c5296",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 2,
+          "title": "如何解读住建部「4楼及以上住宅都要加装电梯，解决老年群体上下楼问题 」？具体实施存在什么难点？",
+          "url": "https://www.zhihu.com/question/2084296198253449462",
+          "hot_value": 4490000,
+          "hot_value_raw": "449 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 60,
+            "comment_count": 0,
+            "excerpt": "今天（18日），国新办举行“开局起步‘十五五’”系列主题新闻发布会。 发布会上，住房城乡建设部有关负责人介绍，提升人民群"
+          },
+          "key": "d36b783e8101bfc9",
+          "dup_of": null,
+          "matched_seen_key": "d36b783e8101bfc9",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 3,
+          "title": "泰国方面吐槽亚运会「选手在官方餐厅吃不饱，只能去外面吃吉野家」，本届亚运会的草台程度还能再上新高度？",
+          "url": "https://www.zhihu.com/question/2084297123386716349",
+          "hot_value": 3880000,
+          "hot_value_raw": "388 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 92,
+            "comment_count": 0,
+            "excerpt": "[2 张图片]"
+          },
+          "key": "149fb9d9d8c3b0b1",
+          "dup_of": null,
+          "matched_seen_key": "149fb9d9d8c3b0b1",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 4,
+          "title": "中国男篮 77-97 不敌日本男篮无缘决赛，失利的原因是什么？暴露了当下中国男篮的哪些问题短板？",
+          "url": "https://www.zhihu.com/question/2084377679638131654",
+          "hot_value": 3270000,
+          "hot_value_raw": "327 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 65,
+            "comment_count": 0,
+            "excerpt": "据体坛周报，北京时间9月18日，名古屋亚运会男篮半决赛，中国男篮惨败日本无缘决赛。终场结束时，现场大屏显示比分是中国78"
+          },
+          "key": "7549b7d0302bbc09",
+          "dup_of": null,
+          "matched_seen_key": "7549b7d0302bbc09",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 5,
+          "title": "周鸿祎称 「吃过一次亏，不会再投资新能源车」，他在新能源赛道踩了什么坑？其投资逻辑发生了哪些转变？",
+          "url": "https://www.zhihu.com/question/2083571889524556215",
+          "hot_value": 2160000,
+          "hot_value_raw": "216 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 46,
+            "comment_count": 0,
+            "excerpt": "“已经吃过一次亏，不会再投资新能源汽车。” 9月15日，360集团创始人周鸿祎出席第五届北斗规模应用国际峰会。在接受潇湘"
+          },
+          "key": "68435374556cd58f",
+          "dup_of": null,
+          "matched_seen_key": "68435374556cd58f",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 6,
+          "title": "蒸十笼包子，最上面的先熟还是最下面的先熟？",
+          "url": "https://www.zhihu.com/question/384206412",
+          "hot_value": 2140000,
+          "hot_value_raw": "214 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 887,
+            "comment_count": 0,
+            "excerpt": null
+          },
+          "key": "27e69e3686d37931",
+          "dup_of": null,
+          "matched_seen_key": "27e69e3686d37931",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 7,
+          "title": "如何评价31岁博士辞医院工作去送外卖、做驻唱？现代社会如何看待人选择生活方式的自由，探索生活的可能性？",
+          "url": "https://www.zhihu.com/question/2084313080465450258",
+          "hot_value": 2130000,
+          "hot_value_raw": "213 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 123,
+            "comment_count": 0,
+            "excerpt": "近日，31岁医学女博士刘子涵辞去医院工作送外卖的事引发关注。 刘子涵来自河北石家庄，2022年11月取得博士学位，博士毕"
+          },
+          "key": "8e4094be15351b9d",
+          "dup_of": null,
+          "matched_seen_key": "8e4094be15351b9d",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 8,
+          "title": "在岸、离岸人民币兑美元双双升破 6.7，创 2023 年以来新高，受哪些因素影响？",
+          "url": "https://www.zhihu.com/question/2084221488257880673",
+          "hot_value": 1990000,
+          "hot_value_raw": "199 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 50,
+            "comment_count": 0,
+            "excerpt": "9月18日，在岸、离岸人民币兑美元双双升破6.7，创2023年以来新高。美联储加息后第二日，美股、美债、黄金同步大涨，中"
+          },
+          "key": "d96b4bba48266ad7",
+          "dup_of": null,
+          "matched_seen_key": "d96b4bba48266ad7",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 9,
+          "title": "亚运会大巴迷路，司机打开纸质地图找方向，韩国选手吐槽「传奇司机」，日本不至于连导航都没普及吧？",
+          "url": "https://www.zhihu.com/question/2084296008213553886",
+          "hot_value": 1840000,
+          "hot_value_raw": "184 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 39,
+            "comment_count": 0,
+            "excerpt": "据韩媒sportschosun报道，韩国射击运动员张子勇昨日在社媒晒图吐槽，日本大巴司机将车停靠在路边查询纸质地图。 照"
+          },
+          "key": "a343af1afeba7146",
+          "dup_of": null,
+          "matched_seen_key": "a343af1afeba7146",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 10,
+          "title": "如何看待智谱就上传用户本地仓库数据道歉，称已修复，将开源 ZCode？",
+          "url": "https://www.zhihu.com/question/2084415444694163889",
+          "hot_value": 1750000,
+          "hot_value_raw": "175 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 22,
+            "comment_count": 0,
+            "excerpt": "IT时代网9月18日消息，今日，有网友曝光智谱AI编程工具ZCode会静默上传用户本地仓库数据。 网友指出，只要在登录状"
+          },
+          "key": "e6cda717afe2521b",
+          "dup_of": null,
+          "matched_seen_key": "e6cda717afe2521b",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 11,
+          "title": "曝 IG 投诉前 LPL 解说 Wayward 成功并致其无限期禁播，对电竞直播言论边界有何警示？",
+          "url": "https://www.zhihu.com/question/2084047045174748027",
+          "hot_value": 1650000,
+          "hot_value_raw": "165 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 29,
+            "comment_count": 0,
+            "excerpt": "#各解说谈Wayward不当言论#王淞：他关禁闭了可能最近精神状态不太稳定，啥情况我也不知道，确实有点疯了也不知道咋了非"
+          },
+          "key": "f4a01c420e859157",
+          "dup_of": null,
+          "matched_seen_key": "f4a01c420e859157",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 12,
+          "title": "为什么这两年加多宝彻底销声匿迹了？",
+          "url": "https://www.zhihu.com/question/312268331",
+          "hot_value": 1630000,
+          "hot_value_raw": "163 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 193,
+            "comment_count": 0,
+            "excerpt": null
+          },
+          "key": "6d88d4db535c4d78",
+          "dup_of": null,
+          "matched_seen_key": "6d88d4db535c4d78",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 13,
+          "title": "中国男篮 77-97 不敌日本男篮后，网友称让郭士强下课，如何评价这场比赛他的战术安排？真的有问题吗？",
+          "url": "https://www.zhihu.com/question/2084379544182416921",
+          "hot_value": 1620000,
+          "hot_value_raw": "162 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 149,
+            "comment_count": 0,
+            "excerpt": "[图片]"
+          },
+          "key": "6c25281d47e60002",
+          "dup_of": null,
+          "matched_seen_key": "6c25281d47e60002",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 14,
+          "title": "松岛辉空说亚运会日本男乒「只发挥50%-60%也有机会击败中国队」对此你怎么看？",
+          "url": "https://www.zhihu.com/question/2084283916446164895",
+          "hot_value": 1610000,
+          "hot_value_raw": "161 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 74,
+            "comment_count": 0,
+            "excerpt": "[图片]"
+          },
+          "key": "a326e1385bdac5ac",
+          "dup_of": null,
+          "matched_seen_key": "a326e1385bdac5ac",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 15,
+          "title": "家委会私自用一千元班费给老师买礼物遭其他家长质疑，家委会有权这么做吗？类似事件层出不穷，根源在哪？",
+          "url": "https://www.zhihu.com/question/2084275838728365951",
+          "hot_value": 1610000,
+          "hot_value_raw": "161 万热度",
+          "hot_label": "热",
+          "extra": {
+            "answer_count": 58,
+            "comment_count": 0,
+            "excerpt": "家委会私自收费给高中老师送礼，校方通报_凤凰网家委会私自收费给高中老师送礼，校方通报"
+          },
+          "key": "053f27169abaab53",
+          "dup_of": null,
+          "matched_seen_key": "053f27169abaab53",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 16,
+          "title": "为什么英文称中国为 China，而不是按照中文读音叫 Zhongguo？",
+          "url": "https://www.zhihu.com/question/2083634942437749293",
+          "hot_value": 1580000,
+          "hot_value_raw": "158 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 26,
+            "comment_count": 0,
+            "excerpt": "我很好奇，China 这个称呼的来源是什么，为什么没有直接音译成 Zhongguo。"
+          },
+          "key": "91cb3d4f2fcded12",
+          "dup_of": null,
+          "matched_seen_key": "91cb3d4f2fcded12",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 17,
+          "title": "办公楼进来条蛇，我被惊吓后把它打死了，事后发现这是国家保护动物，我需要负法律责任吗？",
+          "url": "https://www.zhihu.com/question/658116158",
+          "hot_value": 1100000,
+          "hot_value_raw": "110 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 132,
+            "comment_count": 0,
+            "excerpt": null
+          },
+          "key": "20be056bca068e10",
+          "dup_of": null,
+          "matched_seen_key": "20be056bca068e10",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 18,
+          "title": "有什么很有意思的考古事件？",
+          "url": "https://www.zhihu.com/question/327053255",
+          "hot_value": 1060000,
+          "hot_value_raw": "106 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 170,
+            "comment_count": 0,
+            "excerpt": "就像辛追，小河公主那种，比较稀奇的事件"
+          },
+          "key": "31a20373b5bdea5b",
+          "dup_of": null,
+          "matched_seen_key": "31a20373b5bdea5b",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 19,
+          "title": "永和豆浆被指擦边，400 万粉授权账号播黑丝、洗澡内容，这算品牌营销的一次「翻车」吗？",
+          "url": "https://www.zhihu.com/question/2084191863120946934",
+          "hot_value": 1020000,
+          "hot_value_raw": "102 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 152,
+            "comment_count": 0,
+            "excerpt": "当流量意味着销量，“擦边”成了一些品牌营销眼里性价比最高的捷径——用最暧昧的画面，换最便宜的热度。 今年8月初，因官方账"
+          },
+          "key": "31ac22b23496d967",
+          "dup_of": null,
+          "matched_seen_key": "31ac22b23496d967",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 20,
+          "title": "「不打不相识」的对抗路友情可以算是作品中的老套路了，为什么我们还能看得津津有味？",
+          "url": "https://www.zhihu.com/question/2071247435016271128",
+          "hot_value": 1010000,
+          "hot_value_raw": "101 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 24,
+            "comment_count": 0,
+            "excerpt": null
+          },
+          "key": "83036998a83f03f1",
+          "dup_of": null,
+          "matched_seen_key": "83036998a83f03f1",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 21,
+          "title": "中国海警回应菲船只碰撞我海警艇，正告菲方立即停止一切侵权挑衅行径，有哪些信息值得关注？",
+          "url": "https://www.zhihu.com/question/2084284024198116550",
+          "hot_value": 1010000,
+          "hot_value_raw": "101 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 61,
+            "comment_count": 0,
+            "excerpt": "中国海警局新闻发言人姜略表示，9月18日，中国海警三洲澳艇依法在中国南沙群岛仙宾礁附近海域开展维权执法行动。菲3015号"
+          },
+          "key": "6560a00479c5b48b",
+          "dup_of": null,
+          "matched_seen_key": "6560a00479c5b48b",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 22,
+          "title": "如何评价原神霜精村落的设定？",
+          "url": "https://www.zhihu.com/question/2084255258474199022",
+          "hot_value": 1010000,
+          "hot_value_raw": "101 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 16,
+            "comment_count": 0,
+            "excerpt": "霜精有必要形成村落吗？感觉他们的生态位形成村落就是挨打的，分散隐居才是幸福。"
+          },
+          "key": "5061e337fd1fa2cb",
+          "dup_of": null,
+          "matched_seen_key": "5061e337fd1fa2cb",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 23,
+          "title": "睡觉时将双手举过头顶的「投降式」睡姿，其实是身体在求救，这是真的吗？会带来哪些影响？怎样的睡姿最科学？",
+          "url": "https://www.zhihu.com/question/2083956845534605480",
+          "hot_value": 990000,
+          "hot_value_raw": "99 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 52,
+            "comment_count": 0,
+            "excerpt": "川观新闻编辑 郭雨迪 综合央视新闻、生命时报、网友评论等 今天，“举手式睡姿是身体在求救”冲上微博热搜。 你有没有过这种"
+          },
+          "key": "2361c6e13efd415f",
+          "dup_of": null,
+          "matched_seen_key": "2361c6e13efd415f",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 24,
+          "title": "更大的超级乌龙来了，亚运会曲棍球比赛，主办方将朝鲜国歌错当成韩国国歌播放，韩国计划抗议，对此你怎么看？",
+          "url": "https://www.zhihu.com/question/2084320053546022092",
+          "hot_value": 890000,
+          "hot_value_raw": "89 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 136,
+            "comment_count": 0,
+            "excerpt": "大乌龙！亚运会曲棍球韩国赛前错放朝鲜国歌，韩方计划正式抗议！-直播吧 韩媒news1报道，在今日亚运会男子曲棍球韩国5-"
+          },
+          "key": "9150233e59844f47",
+          "dup_of": null,
+          "matched_seen_key": "9150233e59844f47",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 25,
+          "title": "姐姐姐夫答应我上大学送我电脑，现在说只给5000块钱，这应该吗？",
+          "url": "https://www.zhihu.com/question/2083872661831263836",
+          "hot_value": 840000,
+          "hot_value_raw": "84 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 1077,
+            "comment_count": 0,
+            "excerpt": "我表达不清楚，导致一些朋友没弄清楚人物关系，抱歉！给大家磕头了。 \"我\"是妹妹，姐姐是“我”的亲姐姐，这是一对亲姐妹。 "
+          },
+          "key": "9105b08bfc3551f3",
+          "dup_of": null,
+          "matched_seen_key": "9105b08bfc3551f3",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 26,
+          "title": "印度媒体吐槽名古屋亚运会「要是换成印度这么干，早就被骂翻成全球丑闻了」，对此你怎么看？",
+          "url": "https://www.zhihu.com/question/2083986747210166982",
+          "hot_value": 700000,
+          "hot_value_raw": "70 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 293,
+            "comment_count": 0,
+            "excerpt": "印度都忍不了！媒体人：日本承办亚运一团糟，要是印度早成丑闻了-直播吧 本届爱知-名古屋亚运会场外事件不断，多个代表团遭遇"
+          },
+          "key": "8d69e8d5be738e66",
+          "dup_of": null,
+          "matched_seen_key": "8d69e8d5be738e66",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 27,
+          "title": "真实合理的太空战争会是什么样子的呢？",
+          "url": "https://www.zhihu.com/question/281802414",
+          "hot_value": 690000,
+          "hot_value_raw": "69 万热度",
+          "hot_label": "新",
+          "extra": {
+            "answer_count": 23,
+            "comment_count": 0,
+            "excerpt": "就是比较现实的 处在可预见未来的 刚刚起步阶段的太空战争 人们会采用什么样的装备载具 武器 战术？"
+          },
+          "key": "b61f5d8fd5ad244c",
+          "dup_of": null,
+          "matched_seen_key": "b61f5d8fd5ad244c",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 28,
+          "title": "为什么我国的概率与统计学教科书里不怎么讲幂律分布？",
+          "url": "https://www.zhihu.com/question/20313934",
+          "hot_value": 670000,
+          "hot_value_raw": "67 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 40,
+            "comment_count": 0,
+            "excerpt": null
+          },
+          "key": "ad18b330ab5e9af3",
+          "dup_of": null,
+          "matched_seen_key": "ad18b330ab5e9af3",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 29,
+          "title": "印度央行强制塔塔控股公司上市，或成印度史上最大 IPO，为什么还有强制上市的情况？",
+          "url": "https://www.zhihu.com/question/2083879086175117961",
+          "hot_value": 600000,
+          "hot_value_raw": "60 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 37,
+            "comment_count": 0,
+            "excerpt": "印度储备银行近日驳回塔塔集团提出的豁免申请，要求其控股公司塔塔之子遵守上市规定。分析人士估计，塔塔之子上市估值可能超过1"
+          },
+          "key": "7f3d8b48b4538686",
+          "dup_of": null,
+          "matched_seen_key": "7f3d8b48b4538686",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "zhihu",
+          "rank": 30,
+          "title": "为什么生意再小，赚钱的速度都远超打工？",
+          "url": "https://www.zhihu.com/question/1973749451853169735",
+          "hot_value": 590000,
+          "hot_value_raw": "59 万热度",
+          "hot_label": null,
+          "extra": {
+            "answer_count": 363,
+            "comment_count": 0,
+            "excerpt": "为什么打工比做生意来钱的速度这么慢？哪怕是路边的早餐店、晚上的夜市摊，赚钱的速度都比打工快好几倍？ 打工是靠时间换钱，生"
+          },
+          "key": "e7df517456620e3f",
+          "dup_of": null,
+          "matched_seen_key": "e7df517456620e3f",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "source": "baidu",
+      "display_name": "百度热搜",
+      "endpoint": "https://top.baidu.com/api/board?platform=wise&tab=realtime",
+      "status": "ok",
+      "error": null,
+      "requests": 1,
+      "hot_value_note": "该端点不返回热度数值，仅源内排名（rank）可比",
+      "item_count": 30,
+      "items": [
+        {
+          "source": "baidu",
+          "rank": 1,
+          "title": "总书记为先进制造业指明方向",
+          "url": "https://m.baidu.com/s?word=%E6%80%BB%E4%B9%A6%E8%AE%B0%E4%B8%BA%E5%85%88%E8%BF%9B%E5%88%B6%E9%80%A0%E4%B8%9A%E6%8C%87%E6%98%8E%E6%96%B9%E5%90%91&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": true
+          },
+          "key": "67d89d4f944e2e60",
+          "dup_of": null,
+          "matched_seen_key": "67d89d4f944e2e60",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 2,
+          "title": "毛东东随团访朝 向毛岸英铜像祭酒",
+          "url": "https://m.baidu.com/s?word=%E6%AF%9B%E4%B8%9C%E4%B8%9C%E9%9A%8F%E5%9B%A2%E8%AE%BF%E6%9C%9D+%E5%90%91%E6%AF%9B%E5%B2%B8%E8%8B%B1%E9%93%9C%E5%83%8F%E7%A5%AD%E9%85%92&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "热",
+          "extra": {
+            "is_top": null
+          },
+          "key": "232ec565df17eb34",
+          "dup_of": null,
+          "matched_seen_key": "232ec565df17eb34",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 3,
+          "title": "沙特首都利雅得遭空袭",
+          "url": "https://m.baidu.com/s?word=%E6%B2%99%E7%89%B9%E9%A6%96%E9%83%BD%E5%88%A9%E9%9B%85%E5%BE%97%E9%81%AD%E7%A9%BA%E8%A2%AD&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "热",
+          "extra": {
+            "is_top": null
+          },
+          "key": "7c9e4854134d9157",
+          "dup_of": "0fd00c75baf24042",
+          "dup_of_title": "沙特首都利雅得遭空袭",
+          "dup_similarity": 1.0,
+          "is_new": false,
+          "streak": 2,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 4,
+          "title": "绘就丰收画卷 这四个地方给出答案",
+          "url": "https://m.baidu.com/s?word=%E7%BB%98%E5%B0%B1%E4%B8%B0%E6%94%B6%E7%94%BB%E5%8D%B7+%E8%BF%99%E5%9B%9B%E4%B8%AA%E5%9C%B0%E6%96%B9%E7%BB%99%E5%87%BA%E7%AD%94%E6%A1%88&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "43dd42c5e71da6bb",
+          "dup_of": null,
+          "matched_seen_key": "43dd42c5e71da6bb",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 5,
+          "title": "数学老师投300万拍电影 8天票房2万",
+          "url": "https://m.baidu.com/s?word=%E6%95%B0%E5%AD%A6%E8%80%81%E5%B8%88%E6%8A%95300%E4%B8%87%E6%8B%8D%E7%94%B5%E5%BD%B1+8%E5%A4%A9%E7%A5%A8%E6%88%BF2%E4%B8%87&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "27127035ab142e80",
+          "dup_of": null,
+          "matched_seen_key": "27127035ab142e80",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 6,
+          "title": "恋陪剧本杀 软色情",
+          "url": "https://m.baidu.com/s?word=%E6%81%8B%E9%99%AA%E5%89%A7%E6%9C%AC%E6%9D%80+%E8%BD%AF%E8%89%B2%E6%83%85&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "5ad3da9fe5d08b68",
+          "dup_of": null,
+          "matched_seen_key": "5ad3da9fe5d08b68",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 7,
+          "title": "中美经贸磋商",
+          "url": "https://m.baidu.com/s?word=%E4%B8%AD%E7%BE%8E%E7%BB%8F%E8%B4%B8%E7%A3%8B%E5%95%86&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "e7b764f7bc777dd4",
+          "dup_of": null,
+          "matched_seen_key": "e7b764f7bc777dd4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 8,
+          "title": "百余年来首次 猫科再添现存新物种",
+          "url": "https://m.baidu.com/s?word=%E7%99%BE%E4%BD%99%E5%B9%B4%E6%9D%A5%E9%A6%96%E6%AC%A1+%E7%8C%AB%E7%A7%91%E5%86%8D%E6%B7%BB%E7%8E%B0%E5%AD%98%E6%96%B0%E7%89%A9%E7%A7%8D&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "feba616ea5ecac79",
+          "dup_of": null,
+          "matched_seen_key": "feba616ea5ecac79",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 9,
+          "title": "美驻日使馆9月18日发帖 日本网民破防",
+          "url": "https://m.baidu.com/s?word=%E7%BE%8E%E9%A9%BB%E6%97%A5%E4%BD%BF%E9%A6%869%E6%9C%8818%E6%97%A5%E5%8F%91%E5%B8%96+%E6%97%A5%E6%9C%AC%E7%BD%91%E6%B0%91%E7%A0%B4%E9%98%B2&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "4db1687d331379cc",
+          "dup_of": null,
+          "matched_seen_key": "4db1687d331379cc",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 10,
+          "title": "亚运会餐食 减肥都吃得比这多",
+          "url": "https://m.baidu.com/s?word=%E4%BA%9A%E8%BF%90%E4%BC%9A%E9%A4%90%E9%A3%9F+%E5%87%8F%E8%82%A5%E9%83%BD%E5%90%83%E5%BE%97%E6%AF%94%E8%BF%99%E5%A4%9A&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "4049fd8b7aa0cf63",
+          "dup_of": null,
+          "matched_seen_key": "4049fd8b7aa0cf63",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 11,
+          "title": "于东来正被自己的人设绑架",
+          "url": "https://m.baidu.com/s?word=%E4%BA%8E%E4%B8%9C%E6%9D%A5%E6%AD%A3%E8%A2%AB%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%BA%E8%AE%BE%E7%BB%91%E6%9E%B6&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "a46a3fc6d8e729a4",
+          "dup_of": null,
+          "matched_seen_key": "a46a3fc6d8e729a4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 12,
+          "title": "绵阳一养猪场单日死亡500头猪不实",
+          "url": "https://m.baidu.com/s?word=%E7%BB%B5%E9%98%B3%E4%B8%80%E5%85%BB%E7%8C%AA%E5%9C%BA%E5%8D%95%E6%97%A5%E6%AD%BB%E4%BA%A1500%E5%A4%B4%E7%8C%AA%E4%B8%8D%E5%AE%9E&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "16976d5e0cce91f3",
+          "dup_of": null,
+          "matched_seen_key": "16976d5e0cce91f3",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 13,
+          "title": "当红好莱坞女星大尺度广告翻车",
+          "url": "https://m.baidu.com/s?word=%E5%BD%93%E7%BA%A2%E5%A5%BD%E8%8E%B1%E5%9D%9E%E5%A5%B3%E6%98%9F%E5%A4%A7%E5%B0%BA%E5%BA%A6%E5%B9%BF%E5%91%8A%E7%BF%BB%E8%BD%A6&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "69468780165041ba",
+          "dup_of": null,
+          "matched_seen_key": "69468780165041ba",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 14,
+          "title": "生育后失明失聪女子妹妹父亲患罕见病",
+          "url": "https://m.baidu.com/s?word=%E7%94%9F%E8%82%B2%E5%90%8E%E5%A4%B1%E6%98%8E%E5%A4%B1%E8%81%AA%E5%A5%B3%E5%AD%90%E5%A6%B9%E5%A6%B9%E7%88%B6%E4%BA%B2%E6%82%A3%E7%BD%95%E8%A7%81%E7%97%85&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "f4c88f8780e64d2a",
+          "dup_of": null,
+          "matched_seen_key": "f4c88f8780e64d2a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 15,
+          "title": "AI女演员访谈突然卡壳 下秒飙粤语",
+          "url": "https://m.baidu.com/s?word=AI%E5%A5%B3%E6%BC%94%E5%91%98%E8%AE%BF%E8%B0%88%E7%AA%81%E7%84%B6%E5%8D%A1%E5%A3%B3+%E4%B8%8B%E7%A7%92%E9%A3%99%E7%B2%A4%E8%AF%AD&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "56a8f9a2cdab5fe1",
+          "dup_of": null,
+          "matched_seen_key": "56a8f9a2cdab5fe1",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 16,
+          "title": "墨西哥阅兵现场惊现UFO？和军机同框",
+          "url": "https://m.baidu.com/s?word=%E5%A2%A8%E8%A5%BF%E5%93%A5%E9%98%85%E5%85%B5%E7%8E%B0%E5%9C%BA%E6%83%8A%E7%8E%B0UFO%EF%BC%9F%E5%92%8C%E5%86%9B%E6%9C%BA%E5%90%8C%E6%A1%86&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "1e71e9f1bc8fd989",
+          "dup_of": null,
+          "matched_seen_key": "1e71e9f1bc8fd989",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 17,
+          "title": "店主贴“回趟公安”被解读成拘留",
+          "url": "https://m.baidu.com/s?word=%E5%BA%97%E4%B8%BB%E8%B4%B4%E2%80%9C%E5%9B%9E%E8%B6%9F%E5%85%AC%E5%AE%89%E2%80%9D%E8%A2%AB%E8%A7%A3%E8%AF%BB%E6%88%90%E6%8B%98%E7%95%99&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "919a662c02b92894",
+          "dup_of": null,
+          "matched_seen_key": "919a662c02b92894",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 18,
+          "title": "拖欠员工公积金 娃哈哈致歉",
+          "url": "https://m.baidu.com/s?word=%E6%8B%96%E6%AC%A0%E5%91%98%E5%B7%A5%E5%85%AC%E7%A7%AF%E9%87%91+%E5%A8%83%E5%93%88%E5%93%88%E8%87%B4%E6%AD%89&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "dacaf43bca981316",
+          "dup_of": null,
+          "matched_seen_key": "dacaf43bca981316",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 19,
+          "title": "吉林出现野生东北虎“五虎同框”",
+          "url": "https://m.baidu.com/s?word=%E5%90%89%E6%9E%97%E5%87%BA%E7%8E%B0%E9%87%8E%E7%94%9F%E4%B8%9C%E5%8C%97%E8%99%8E%E2%80%9C%E4%BA%94%E8%99%8E%E5%90%8C%E6%A1%86%E2%80%9D&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "d980e5c075d4e4e9",
+          "dup_of": null,
+          "matched_seen_key": "d980e5c075d4e4e9",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 20,
+          "title": "陈建州病房众人齐聚拍照 医院回应",
+          "url": "https://m.baidu.com/s?word=%E9%99%88%E5%BB%BA%E5%B7%9E%E7%97%85%E6%88%BF%E4%BC%97%E4%BA%BA%E9%BD%90%E8%81%9A%E6%8B%8D%E7%85%A7+%E5%8C%BB%E9%99%A2%E5%9B%9E%E5%BA%94&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": "新",
+          "extra": {
+            "is_top": null
+          },
+          "key": "3994af8e7d74e7ae",
+          "dup_of": null,
+          "matched_seen_key": "3994af8e7d74e7ae",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 21,
+          "title": "油价预计9月24日24时上调",
+          "url": "https://m.baidu.com/s?word=%E6%B2%B9%E4%BB%B7%E9%A2%84%E8%AE%A19%E6%9C%8824%E6%97%A524%E6%97%B6%E4%B8%8A%E8%B0%83&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "91d9897912c22fe4",
+          "dup_of": null,
+          "matched_seen_key": "91d9897912c22fe4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 22,
+          "title": "高中生自制综艺走红 邓超李晨也参与",
+          "url": "https://m.baidu.com/s?word=%E9%AB%98%E4%B8%AD%E7%94%9F%E8%87%AA%E5%88%B6%E7%BB%BC%E8%89%BA%E8%B5%B0%E7%BA%A2+%E9%82%93%E8%B6%85%E6%9D%8E%E6%99%A8%E4%B9%9F%E5%8F%82%E4%B8%8E&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "6515247668305df9",
+          "dup_of": null,
+          "matched_seen_key": "6515247668305df9",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 23,
+          "title": "产后失明失聪女子：从不后悔生娃",
+          "url": "https://m.baidu.com/s?word=%E4%BA%A7%E5%90%8E%E5%A4%B1%E6%98%8E%E5%A4%B1%E8%81%AA%E5%A5%B3%E5%AD%90%EF%BC%9A%E4%BB%8E%E4%B8%8D%E5%90%8E%E6%82%94%E7%94%9F%E5%A8%83&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "58cb73784a87a351",
+          "dup_of": null,
+          "matched_seen_key": "58cb73784a87a351",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 24,
+          "title": "将与机顶盒合体 一体化电视什么样",
+          "url": "https://m.baidu.com/s?word=%E5%B0%86%E4%B8%8E%E6%9C%BA%E9%A1%B6%E7%9B%92%E5%90%88%E4%BD%93+%E4%B8%80%E4%BD%93%E5%8C%96%E7%94%B5%E8%A7%86%E4%BB%80%E4%B9%88%E6%A0%B7&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "6d256bab141e6f6c",
+          "dup_of": null,
+          "matched_seen_key": "6d256bab141e6f6c",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 25,
+          "title": "中国篮球之队回应负于日本男篮",
+          "url": "https://m.baidu.com/s?word=%E4%B8%AD%E5%9B%BD%E7%AF%AE%E7%90%83%E4%B9%8B%E9%98%9F%E5%9B%9E%E5%BA%94%E8%B4%9F%E4%BA%8E%E6%97%A5%E6%9C%AC%E7%94%B7%E7%AF%AE&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "dc79c96336afa606",
+          "dup_of": null,
+          "matched_seen_key": "dc79c96336afa606",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 26,
+          "title": "公积金大变化 住建部明确四大发力点",
+          "url": "https://m.baidu.com/s?word=%E5%85%AC%E7%A7%AF%E9%87%91%E5%A4%A7%E5%8F%98%E5%8C%96+%E4%BD%8F%E5%BB%BA%E9%83%A8%E6%98%8E%E7%A1%AE%E5%9B%9B%E5%A4%A7%E5%8F%91%E5%8A%9B%E7%82%B9&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "0f6336395002fcce",
+          "dup_of": null,
+          "matched_seen_key": "0f6336395002fcce",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 27,
+          "title": "高校考试开考9分钟试卷就被外传",
+          "url": "https://m.baidu.com/s?word=%E9%AB%98%E6%A0%A1%E8%80%83%E8%AF%95%E5%BC%80%E8%80%839%E5%88%86%E9%92%9F%E8%AF%95%E5%8D%B7%E5%B0%B1%E8%A2%AB%E5%A4%96%E4%BC%A0&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "428bae05d9e6d33a",
+          "dup_of": null,
+          "matched_seen_key": "428bae05d9e6d33a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 28,
+          "title": "花510万元“上天”能飞到哪里",
+          "url": "https://m.baidu.com/s?word=%E8%8A%B1510%E4%B8%87%E5%85%83%E2%80%9C%E4%B8%8A%E5%A4%A9%E2%80%9D%E8%83%BD%E9%A3%9E%E5%88%B0%E5%93%AA%E9%87%8C&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "18adf7cc16d2803c",
+          "dup_of": null,
+          "matched_seen_key": "18adf7cc16d2803c",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 29,
+          "title": "姆巴佩跳槽 结束和耐克近20年合作",
+          "url": "https://m.baidu.com/s?word=%E5%A7%86%E5%B7%B4%E4%BD%A9%E8%B7%B3%E6%A7%BD+%E7%BB%93%E6%9D%9F%E5%92%8C%E8%80%90%E5%85%8B%E8%BF%9120%E5%B9%B4%E5%90%88%E4%BD%9C&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "3f305844533c87ce",
+          "dup_of": null,
+          "matched_seen_key": "3f305844533c87ce",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "baidu",
+          "rank": 30,
+          "title": "杨毅犀利点评中国男篮",
+          "url": "https://m.baidu.com/s?word=%E6%9D%A8%E6%AF%85%E7%8A%80%E5%88%A9%E7%82%B9%E8%AF%84%E4%B8%AD%E5%9B%BD%E7%94%B7%E7%AF%AE&sa=fyb_news",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "is_top": null
+          },
+          "key": "e2543870ccfd67fb",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "source": "hn",
+      "display_name": "HN 首页",
+      "endpoint": "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage={limit}",
+      "status": "ok",
+      "error": null,
+      "requests": 1,
+      "hot_value_note": "HN points（赞数），仅源内可比",
+      "item_count": 30,
+      "items": [
+        {
+          "source": "hn",
+          "rank": 1,
+          "title": "Cloudflare Quick Tunnels",
+          "url": "https://try.cloudflare.com/",
+          "hot_value": 571,
+          "hot_value_raw": "571",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 247,
+            "story_url": "https://news.ycombinator.com/item?id=49754785"
+          },
+          "key": "bac22dcf3ca76fe7",
+          "dup_of": null,
+          "matched_seen_key": "bac22dcf3ca76fe7",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 2,
+          "title": "OpenJev",
+          "url": "https://openjev.com/",
+          "hot_value": 555,
+          "hot_value_raw": "555",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 245,
+            "story_url": "https://news.ycombinator.com/item?id=49752041"
+          },
+          "key": "072487509450a7fa",
+          "dup_of": null,
+          "matched_seen_key": "072487509450a7fa",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 3,
+          "title": "Android 17 is the first since 3.x to add new APIs without releasing to the AOSP",
+          "url": "https://grapheneos.social/@GrapheneOS/117282080803799576",
+          "hot_value": 519,
+          "hot_value_raw": "519",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 257,
+            "story_url": "https://news.ycombinator.com/item?id=49758736"
+          },
+          "key": "1704ec300ffe2f68",
+          "dup_of": null,
+          "matched_seen_key": "1704ec300ffe2f68",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 4,
+          "title": "Claude Code now reads AGENTS.md if there is no Claude.md",
+          "url": "https://code.claude.com/docs/en/changelog",
+          "hot_value": 505,
+          "hot_value_raw": "505",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 181,
+            "story_url": "https://news.ycombinator.com/item?id=49760187"
+          },
+          "key": "9b0bea9a8f225cf0",
+          "dup_of": null,
+          "matched_seen_key": "9b0bea9a8f225cf0",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 5,
+          "title": "How to Write with an LLM",
+          "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
+          "hot_value": 386,
+          "hot_value_raw": "386",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 268,
+            "story_url": "https://news.ycombinator.com/item?id=49747070"
+          },
+          "key": "da2138201611c598",
+          "dup_of": null,
+          "matched_seen_key": "da2138201611c598",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 6,
+          "title": "Inside ZCode: Silently uploading your Git history to the cloud",
+          "url": "https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/",
+          "hot_value": 253,
+          "hot_value_raw": "253",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 90,
+            "story_url": "https://news.ycombinator.com/item?id=49750694"
+          },
+          "key": "be949a9f15682a13",
+          "dup_of": null,
+          "matched_seen_key": "be949a9f15682a13",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 7,
+          "title": "Saving another 100TB of RAM",
+          "url": "https://blog.cloudflare.com/saving-100-tb-of-ram-with-math/",
+          "hot_value": 223,
+          "hot_value_raw": "223",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 42,
+            "story_url": "https://news.ycombinator.com/item?id=49758580"
+          },
+          "key": "8b3759fdb1e4e5d8",
+          "dup_of": null,
+          "matched_seen_key": "8b3759fdb1e4e5d8",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 8,
+          "title": "I vibed a proof of Conway's conjecture",
+          "url": "https://overreacted.io/how-i-vibed-a-proof-of-conways-conjecture/",
+          "hot_value": 209,
+          "hot_value_raw": "209",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 184,
+            "story_url": "https://news.ycombinator.com/item?id=49755024"
+          },
+          "key": "b827197a221e37ae",
+          "dup_of": null,
+          "matched_seen_key": "b827197a221e37ae",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 9,
+          "title": "North Korean nuclear test sets off years of earthquakes",
+          "url": "https://www.science.org/content/article/north-korean-nuclear-test-sets-years-earthquakes",
+          "hot_value": 182,
+          "hot_value_raw": "182",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 151,
+            "story_url": "https://news.ycombinator.com/item?id=49755160"
+          },
+          "key": "ceee1cf494947615",
+          "dup_of": null,
+          "matched_seen_key": "ceee1cf494947615",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 10,
+          "title": "Minimal Phone 2",
+          "url": "https://minimalcompany.com/",
+          "hot_value": 180,
+          "hot_value_raw": "180",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 173,
+            "story_url": "https://news.ycombinator.com/item?id=49749369"
+          },
+          "key": "a492e5f0df2e78f4",
+          "dup_of": null,
+          "matched_seen_key": "a492e5f0df2e78f4",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 11,
+          "title": "The first new cat species discovered in 100 years",
+          "url": "https://www.nationalgeographic.com/animals/article/meet-the-first-new-cat-species-discovered-in-100-years",
+          "hot_value": 165,
+          "hot_value_raw": "165",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 57,
+            "story_url": "https://news.ycombinator.com/item?id=49744704"
+          },
+          "key": "5617d5a2d04e0a07",
+          "dup_of": null,
+          "matched_seen_key": "5617d5a2d04e0a07",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 12,
+          "title": "Show HN: Cactus Needle 3: 8-29MB automation models can match DeepSeek V4 Flash",
+          "url": "https://cactuscompute.com/needle",
+          "hot_value": 164,
+          "hot_value_raw": "164",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 77,
+            "story_url": "https://news.ycombinator.com/item?id=49748553"
+          },
+          "key": "635b267ac04d2887",
+          "dup_of": null,
+          "matched_seen_key": "635b267ac04d2887",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 13,
+          "title": "How SpaceX streamlined the Raptor engine",
+          "url": "https://www.construction-physics.com/p/how-spacex-streamlined-the-raptor",
+          "hot_value": 160,
+          "hot_value_raw": "160",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 37,
+            "story_url": "https://news.ycombinator.com/item?id=49746626"
+          },
+          "key": "6de6b0d0755f454a",
+          "dup_of": null,
+          "matched_seen_key": "6de6b0d0755f454a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 14,
+          "title": "Photon-Emission-Guided Laser Fault Injection Enables RP2350 Secure Debug",
+          "url": "https://donjon.ledger.com/blog/rp2350-secure-debug-laser-fault-injection/",
+          "hot_value": 151,
+          "hot_value_raw": "151",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 53,
+            "story_url": "https://news.ycombinator.com/item?id=49757050"
+          },
+          "key": "bff3dc5cc4669482",
+          "dup_of": null,
+          "matched_seen_key": "bff3dc5cc4669482",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 15,
+          "title": "C++26: Trivial infinite loops are no longer undefined behaviour",
+          "url": "https://www.sandordargo.com/blog/2026/09/16/cpp26-trivial-infinite-loops",
+          "hot_value": 148,
+          "hot_value_raw": "148",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 196,
+            "story_url": "https://news.ycombinator.com/item?id=49746406"
+          },
+          "key": "e3d4951e99c3e34f",
+          "dup_of": null,
+          "matched_seen_key": "e3d4951e99c3e34f",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 16,
+          "title": "Xcode 27.1 Beta Release Notes",
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes",
+          "hot_value": 111,
+          "hot_value_raw": "111",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 67,
+            "story_url": "https://news.ycombinator.com/item?id=49758419"
+          },
+          "key": "a4ee0a750348e7d0",
+          "dup_of": null,
+          "matched_seen_key": "a4ee0a750348e7d0",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 17,
+          "title": "Two parallel neural ectoderm progenitors contribute to the developing brain",
+          "url": "https://www.newscientist.com/article/2589739-our-brain-evolved-from-two-primitive-nervous-systems-that-merged/",
+          "hot_value": 103,
+          "hot_value_raw": "103",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 54,
+            "story_url": "https://news.ycombinator.com/item?id=49755533"
+          },
+          "key": "1ff6e8ad6fa3f80c",
+          "dup_of": null,
+          "matched_seen_key": "1ff6e8ad6fa3f80c",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 18,
+          "title": "Warez: The Infrastructure and Aesthetics of Piracy (2021)",
+          "url": "https://archive.org/details/b904a8eb-9c98-4bb1-bf25-3cb9d075b157",
+          "hot_value": 103,
+          "hot_value_raw": "103",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 22,
+            "story_url": "https://news.ycombinator.com/item?id=49749724"
+          },
+          "key": "1352d934f7bfd0a0",
+          "dup_of": null,
+          "matched_seen_key": "1352d934f7bfd0a0",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 19,
+          "title": "Cache-to-Cache: Direct Semantic Communication Between LLMs (2025)",
+          "url": "https://arxiv.org/abs/2510.03215",
+          "hot_value": 66,
+          "hot_value_raw": "66",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 12,
+            "story_url": "https://news.ycombinator.com/item?id=49758615"
+          },
+          "key": "6496bc27021917f7",
+          "dup_of": null,
+          "matched_seen_key": "6496bc27021917f7",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 20,
+          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
+          "url": "https://spectrum.ieee.org/llms-for-chip-design",
+          "hot_value": 53,
+          "hot_value_raw": "53",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 49,
+            "story_url": "https://news.ycombinator.com/item?id=49761432"
+          },
+          "key": "64adcb8eecb3d598",
+          "dup_of": null,
+          "matched_seen_key": "64adcb8eecb3d598",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 21,
+          "title": "A search-and-inference database from scratch in pure Zig",
+          "url": "https://antfly.io/research/antfly-zig",
+          "hot_value": 53,
+          "hot_value_raw": "53",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 16,
+            "story_url": "https://news.ycombinator.com/item?id=49714157"
+          },
+          "key": "995ff74100dbd04a",
+          "dup_of": null,
+          "matched_seen_key": "995ff74100dbd04a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 22,
+          "title": "The Implications of Linguistic Illegibility for LLM Security",
+          "url": "https://arxiv.org/abs/2609.02852",
+          "hot_value": 52,
+          "hot_value_raw": "52",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 19,
+            "story_url": "https://news.ycombinator.com/item?id=49758689"
+          },
+          "key": "048f23776205de3a",
+          "dup_of": null,
+          "matched_seen_key": "048f23776205de3a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 23,
+          "title": "Cyclomatic Complexity in C",
+          "url": "https://blog.ndepend.com/understanding-cyclomatic-complexity/",
+          "hot_value": 33,
+          "hot_value_raw": "33",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 14,
+            "story_url": "https://news.ycombinator.com/item?id=49731413"
+          },
+          "key": "3ac9a1e6990c6b85",
+          "dup_of": null,
+          "matched_seen_key": "3ac9a1e6990c6b85",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 24,
+          "title": "From Geometry to Algebra and Back Again: 4000 Years of Papers (2023) [video]",
+          "url": "https://www.youtube.com/watch?v=1cRFfYQYGxE",
+          "hot_value": 28,
+          "hot_value_raw": "28",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 0,
+            "story_url": "https://news.ycombinator.com/item?id=49740371"
+          },
+          "key": "404e464eb106273a",
+          "dup_of": null,
+          "matched_seen_key": "404e464eb106273a",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 25,
+          "title": "The Farnese letter",
+          "url": "https://simonklee.dk/farnese-letter",
+          "hot_value": 26,
+          "hot_value_raw": "26",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 5,
+            "story_url": "https://news.ycombinator.com/item?id=49744036"
+          },
+          "key": "fdb396d161c84130",
+          "dup_of": null,
+          "matched_seen_key": "fdb396d161c84130",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 26,
+          "title": "Column built an issuer processor from scratch",
+          "url": "https://column.com/card-issuing/",
+          "hot_value": 22,
+          "hot_value_raw": "22",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 5,
+            "story_url": "https://news.ycombinator.com/item?id=49729631"
+          },
+          "key": "85d558b587a404a6",
+          "dup_of": null,
+          "matched_seen_key": "85d558b587a404a6",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 27,
+          "title": "Alibaba open-sources AI model that can detect cancer and nearly 150 conditions",
+          "url": "https://www.scmp.com/tech/big-tech/article/3368055/alibaba-open-sources-medical-ai-model-can-detect-cancer-and-nearly-150-conditions",
+          "hot_value": 22,
+          "hot_value_raw": "22",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 1,
+            "story_url": "https://news.ycombinator.com/item?id=49761840"
+          },
+          "key": "3c2fb59646fed648",
+          "dup_of": null,
+          "matched_seen_key": "3c2fb59646fed648",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 28,
+          "title": "Size-Specialized Memory Allocation",
+          "url": "https://go.dev/blog/size-specialized-allocations",
+          "hot_value": 15,
+          "hot_value_raw": "15",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 3,
+            "story_url": "https://news.ycombinator.com/item?id=49735057"
+          },
+          "key": "1f279c619cdd6619",
+          "dup_of": null,
+          "matched_seen_key": "1f279c619cdd6619",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 29,
+          "title": "LispBM is a concurrent Lisp for microcontrollers with message passing",
+          "url": "https://www.lispbm.com/",
+          "hot_value": 5,
+          "hot_value_raw": "5",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 1,
+            "story_url": "https://news.ycombinator.com/item?id=49733523"
+          },
+          "key": "c4c4a7970237d683",
+          "dup_of": null,
+          "matched_seen_key": "c4c4a7970237d683",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "hn",
+          "rank": 30,
+          "title": "Show HN: LiveWorld – Every 24/7 YouTube live camera on one globe",
+          "url": "https://liveworld.info/",
+          "hot_value": 4,
+          "hot_value_raw": "4",
+          "hot_label": null,
+          "extra": {
+            "num_comments": 0,
+            "story_url": "https://news.ycombinator.com/item?id=49762099"
+          },
+          "key": "6bbfb06c9f1d49b7",
+          "dup_of": null,
+          "matched_seen_key": "6bbfb06c9f1d49b7",
+          "is_new": false,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    }
+  ]
+}

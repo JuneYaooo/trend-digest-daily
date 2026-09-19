@@ -21,4 +21,4 @@ domains:
 # 数据源开关（agent 据此给 fetch_trends.py 传 --sources；默认即可不用改）
 sources:
   default: ["weibo", "zhihu", "baidu", "hn"]      # 默认启用：大陆网络直连可用
-  optional: ["reddit", "github_trending"]          # 需代理，加 --sources 时手动带上
+  optional: ["reddit", "github_trending"]          # 直连可用性随网络环境波动（Reddit 实测常需代理），加 --sources 时手动带上

@@ -66,7 +66,7 @@ first_seen / dup_of / dup_similarity / key / extra`。热度口径见各源 `hot
 ## 测试与评测
 
 ```bash
-python3 -m unittest discover tests          # 22 项单元测试（离线夹具，不联网）
+python3 -m unittest discover tests          # 24 项单元测试（离线夹具，不联网）
 python3 evals/scripts/run_cases.py          # t1-t7 原子检查 → evals/runs_v1/case_results_v1.json
 python3 evals/scripts/aggregate_results.py  # 从 judgments 重新聚合 summary_v1.json
 ```

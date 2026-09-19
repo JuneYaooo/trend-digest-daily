@@ -1,0 +1,46 @@
+2026-09-19 第二次联网回归（v0.1.0 建仓数小时后复审）· macOS arm64 · Python 3.13
+大陆网络 · 每源每跑 1 个请求、超时 10s、无重试 · 产物与本 transcript 同存 runs_v1/
+# 2026-09-19 第二次联网回归 · macOS arm64 · 与建仓首跑间隔约数小时 · 每源 1 个请求、超时 10s、无重试
+$ python3 scripts/fetch_trends.py --date 2026-09-19 --output evals/runs_v1/regression_2026-09-19_run1.json --seen-out evals/runs_v1/regression_2026-09-19_run1_seen.jsonl   # 第一跑（全量基线，无 --seen）
+[g][微博热搜] 成功 · 30 条（NEW 30）
+[g][知乎热榜] 成功 · 30 条（NEW 30）
+[g][百度热搜] 成功 · 30 条（NEW 29）
+[g][HN 首页] 成功 · 30 条（NEW 30）
+[g]共 120 条 → 去重后 119 条（跨源重复 1，NEW 119）；JSON 已写入 evals/runs_v1/regression_2026-09-19_run1.json
+exit_code=0
+
+$ python3 scripts/fetch_trends.py --date 2026-09-19 --output evals/runs_v1/regression_2026-09-19_run2.json --seen evals/runs_v1/regression_2026-09-19_run1_seen.jsonl --seen-out evals/runs_v1/regression_2026-09-19_run2_seen.jsonl   # 第二跑（间隔约 3 分钟，带 --seen）
+[g][微博热搜] 成功 · 30 条（NEW 2）
+[g][知乎热榜] 成功 · 30 条（NEW 0）
+[g][百度热搜] 成功 · 30 条（NEW 1）
+[g][HN 首页] 成功 · 30 条（NEW 0）
+[g]共 120 条 → 去重后 119 条（跨源重复 1，NEW 3）；JSON 已写入 evals/runs_v1/regression_2026-09-19_run2.json
+exit_code=0
+
+$ python3 scripts/fetch_trends.py --sources reddit,github_trending --date 2026-09-19 --output evals/runs_v1/regression_2026-09-19_optional_sources.json   # 可选源降级路径验证（各 1 请求）
+[y][Reddit 热帖] 源不可用：连接失败/超时（timed out；该源可能需要代理）（已跳过，不影响其他源）
+[g][GitHub Trending] 成功 · 18 条（NEW 18）
+[g]共 18 条 → 去重后 18 条（跨源重复 0，NEW 18）；JSON 已写入 evals/runs_v1/regression_2026-09-19_optional_sources.json
+exit_code=0
+
+# GitHub Trending 结构漂移核查（当日第二次、也是最后一次对该源的请求，仅取原始 HTML 存 /tmp 分析）
+$ python3 - （经 SourceContext.http_get 取 github.com/trending 原始页，requests=1）
+bytes=646326 article数=17 h2数=19
+  页面条目内新增 /sponsors/{owner} 赞助按钮（sponsors/affaan-m、sponsors/supabase、sponsors/asciimoo），
+  页头另有 /sponsors/explore 链接 → 旧适配器（按 <h2> 切分取块内首个 repo 形链接）把
+  sponsors/explore 当成第 1 名条目（18 条中 1 条为假条目，无 star 数）。
+# 修复后（v0.1.1，article 切分 + <h2> 标题内优先取仓库路径 + sponsors 前缀排除）
+# 对同份真实 HTML 离线重解析（不产生新请求）：
+17/17 仓库全量解析，无 sponsors 条目：
+  cloudflare/security-audit-skill 3006 · anthropics/claude-code 444 · alibaba/open-code-review 2704
+  affaan-m/ECC 958 · Tencent/BrowserSkill 1306 · addyosmani/agent-skills 675 · TencentCloud/Octop 569
+  Fission-AI/OpenSpec 296 · ankitects/anki 174 · anthropics/knowledge-work-plugins 299
+  supermemoryai/supermemory 140 · tradesdontlie/tradingview-mcp 79 · rustfs/rustfs 267
+  supabase/supabase 120 · coder/coder 478 · ahmedkhaleel2004/gitdiagram 152 · asciimoo/hister 889
+# 增量结论（第一跑 → 第二跑间隔约 3 分钟）：
+#   第一跑（无 --seen）：120 条 → 去重 119，NEW 119（全量基线）
+#   第二跑（--seen 第一跑缓存）：116 条已见（is_new=false，同日复跑 streak 保持 1）+ NEW 3
+#     （微博#17 中方赴美经贸磋商、微博#30 失踪闺蜜案、百度#30 杨毅点评男篮），
+#     缓存 119 → 122 行，key 无重复（只增新条目、不膨胀）
+#   与建仓时（数小时前）缓存 data/seen.jsonl 离线比对：119 条标题中 36 条仍同题在榜
+# 四源结构漂移核查：微博/知乎/百度/HN 字段结构与建仓时完全一致，无漂移。

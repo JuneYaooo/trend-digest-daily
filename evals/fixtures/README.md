@@ -12,3 +12,4 @@
 | `trends_empty_v1/` | 空榜单边界：知乎/HN 返回空列表（状态 ok、0 条），微博空列表按结构异常降级，百度 500 |
 | `trends_all_error_v1/` | 全源失败边界：四个源全部返回错误体，脚本应以退出码 3 结束且仍输出合法 JSON |
 | `trends_optional_v1/` | 可选源：GitHub Trending HTML 与 Reddit JSON 的合成响应，用于可选源适配器测试（不联网） |
+| `trends_optional_v2/` | 回归夹具（2026-09-19 第二次联网回归发现页面改版后新增）：GitHub Trending 条目内含 `/sponsors/{owner}` 赞助按钮（出现在仓库标题链接之前）与 `/sponsors/explore` 链接，断言赞助链接不入条目、仓库按序完整解析 |

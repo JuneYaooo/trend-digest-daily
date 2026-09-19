@@ -28,7 +28,7 @@ import urllib.request
 from datetime import date, timedelta
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 SCHEMA_VERSION = "1.0"
 
 # 源处理与输出的固定顺序（保证同输入输出一致）；前四个为默认启用
@@ -506,19 +506,42 @@ def strip_tags(fragment: str) -> str:
     return re.sub(r"<[^>]+>", "", fragment or "").strip()
 
 
+# GitHub 页面中出现在仓库条目附近、但不是仓库链接的保留路径前缀
+# （2026-09-19 下午实测：条目内新增 /sponsors/{owner} 赞助按钮、页头有 /sponsors/explore）
+GITHUB_NON_REPO_PREFIXES = {
+    "features", "collections", "trending", "about", "pricing", "topics", "sponsors",
+}
+
+
+def extract_repo_path(chunk: str) -> str | None:
+    """从条目块中取仓库路径：优先 <h2> 标题内的链接（仓库标题），再退回块内首个非保留路径的链接。"""
+    heading = re.search(r"<h2[^>]*>(.*?)</h2>", chunk, re.DOTALL)
+    if heading:
+        match = re.search(r'href="/([\w.-]+/[\w.-]+)"', heading.group(1))
+        if match and match.group(1).split("/")[0].lower() not in GITHUB_NON_REPO_PREFIXES:
+            return match.group(1)
+    for match in re.finditer(r'href="/([\w.-]+/[\w.-]+)"', chunk):
+        path = match.group(1)
+        if path.split("/")[0].lower() not in GITHUB_NON_REPO_PREFIXES:
+            return path
+    return None
+
+
 def adapt_github_trending(ctx: SourceContext) -> list[dict]:
     html = ctx.body(SOURCES["github_trending"]["headers"])
     if "<html" not in html.lower():
         raise FetchError("响应不是 HTML 页面（GitHub Trending 无官方 API，页面可能改版）")
-    chunks = html.split("<h2")[1:]
+    # 2026-09-19 下午实测：每个仓库改为 <article> 包裹（条目内含 /sponsors/{owner} 赞助按钮）；
+    # 兼容旧的 <h2> 布局（无 <article> 时按原逻辑切分）。
+    if "<article" in html:
+        chunks = html.split("<article")[1:]
+    else:
+        chunks = html.split("<h2")[1:]
     items = []
     seen_paths: set[str] = set()
     for chunk in chunks:
-        match = re.search(r'href="/([\w.-]+/[\w.-]+)"', chunk)
-        if not match:
-            continue
-        path = match.group(1)
-        if path.lower() in {"features", "collections", "trending", "about", "pricing", "topics"}:
+        path = extract_repo_path(chunk)
+        if not path:
             continue
         if path in seen_paths:
             continue
@@ -689,6 +712,9 @@ def run(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     sources = [s.strip() for s in args.sources.split(",") if s.strip()]
+    if not sources:
+        print(f"错误：--sources 为空（可用：{','.join(CANONICAL_ORDER)}）", file=sys.stderr)
+        return 2
     unknown = [s for s in sources if s not in ADAPTERS]
     if unknown:
         print(f"错误：未知源 {','.join(unknown)}（可用：{','.join(CANONICAL_ORDER)}）", file=sys.stderr)

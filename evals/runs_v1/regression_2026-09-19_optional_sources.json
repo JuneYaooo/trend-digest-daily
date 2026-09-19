@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.0",
+  "tool": "fetch_trends.py",
+  "tool_version": "0.1.0",
+  "fetched_date": "2026-09-19",
+  "mode": "live",
+  "sources_enabled": [
+    "reddit",
+    "github_trending"
+  ],
+  "notes": {
+    "hot_value_comparability": "各源热度口径不同，hot_value 仅在源内可比；跨源比较请用源内排名",
+    "aggregation": "dup_of 为跨源标题重复标记；聚类命名与选题建议由 agent 依 SKILL.md 生成",
+    "red_line": "只用公开接口，每源每次运行 1 个请求，不做全站爬取"
+  },
+  "summary": {
+    "total_items": 18,
+    "unique_items": 18,
+    "duplicate_items": 0,
+    "new_items": 18,
+    "sources_ok": 1,
+    "sources_unavailable": 1
+  },
+  "sources": [
+    {
+      "source": "reddit",
+      "display_name": "Reddit 热帖",
+      "endpoint": "https://www.reddit.com/r/{sub}/hot.json?limit={limit}&raw_json=1",
+      "status": "unavailable",
+      "error": "连接失败/超时（timed out；该源可能需要代理）",
+      "requests": 1,
+      "hot_value_note": "Reddit score（净赞数），仅源内可比",
+      "item_count": 0,
+      "items": []
+    },
+    {
+      "source": "github_trending",
+      "display_name": "GitHub Trending",
+      "endpoint": "https://github.com/trending",
+      "status": "ok",
+      "error": null,
+      "requests": 1,
+      "hot_value_note": "今日新增 star 数，仅源内可比",
+      "item_count": 18,
+      "items": [
+        {
+          "source": "github_trending",
+          "rank": 1,
+          "title": "sponsors/explore",
+          "url": "https://github.com/sponsors/explore",
+          "hot_value": null,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "sponsors/explore",
+            "description": null
+          },
+          "key": "364d56df464fa358",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 2,
+          "title": "cloudflare/security-audit-skill：A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+          "url": "https://github.com/cloudflare/security-audit-skill",
+          "hot_value": 3006,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "cloudflare/security-audit-skill",
+            "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings"
+          },
+          "key": "6426decba2ef7b96",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 3,
+          "title": "anthropics/claude-code：Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+          "url": "https://github.com/anthropics/claude-code",
+          "hot_value": 444,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "anthropics/claude-code",
+            "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands."
+          },
+          "key": "9c241fb43bc9a659",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 4,
+          "title": "alibaba/open-code-review：Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.",
+          "url": "https://github.com/alibaba/open-code-review",
+          "hot_value": 2704,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "alibaba/open-code-review",
+            "description": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible."
+          },
+          "key": "f7cfdfd7bcc39abd",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 5,
+          "title": "affaan-m/ECC：The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+          "url": "https://github.com/affaan-m/ECC",
+          "hot_value": 958,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "affaan-m/ECC",
+            "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond."
+          },
+          "key": "3429c7218e4f7d01",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 6,
+          "title": "Tencent/BrowserSkill：Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.",
+          "url": "https://github.com/Tencent/BrowserSkill",
+          "hot_value": 1306,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "Tencent/BrowserSkill",
+            "description": "Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent."
+          },
+          "key": "b7cb6769923d1e77",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 7,
+          "title": "addyosmani/agent-skills：Production-grade engineering skills for AI coding agents.",
+          "url": "https://github.com/addyosmani/agent-skills",
+          "hot_value": 675,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "addyosmani/agent-skills",
+            "description": "Production-grade engineering skills for AI coding agents."
+          },
+          "key": "2e74d0228d63bddb",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 8,
+          "title": "TencentCloud/Octop：A smarter, self-hosted AI assistant — multi-user, multi-agent.",
+          "url": "https://github.com/TencentCloud/Octop",
+          "hot_value": 569,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "TencentCloud/Octop",
+            "description": "A smarter, self-hosted AI assistant — multi-user, multi-agent."
+          },
+          "key": "e2fd3d80ed7c3bcf",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 9,
+          "title": "Fission-AI/OpenSpec：Spec-driven development (SDD) for AI coding assistants.",
+          "url": "https://github.com/Fission-AI/OpenSpec",
+          "hot_value": 296,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "Fission-AI/OpenSpec",
+            "description": "Spec-driven development (SDD) for AI coding assistants."
+          },
+          "key": "aab5296bb2be6d76",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 10,
+          "title": "ankitects/anki：Anki is a smart spaced repetition flashcard program",
+          "url": "https://github.com/ankitects/anki",
+          "hot_value": 174,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "ankitects/anki",
+            "description": "Anki is a smart spaced repetition flashcard program"
+          },
+          "key": "f6aec30b265331f2",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 11,
+          "title": "anthropics/knowledge-work-plugins：Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+          "url": "https://github.com/anthropics/knowledge-work-plugins",
+          "hot_value": 299,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "anthropics/knowledge-work-plugins",
+            "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork"
+          },
+          "key": "618e8fb74c6c24a0",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 12,
+          "title": "supermemoryai/supermemory：Memory and context engine + app that is extremely fast, scalable, and can be run fully locally. The Memory API for the AI era.",
+          "url": "https://github.com/supermemoryai/supermemory",
+          "hot_value": 140,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "supermemoryai/supermemory",
+            "description": "Memory and context engine + app that is extremely fast, scalable, and can be run fully locally. The Memory API for the AI era."
+          },
+          "key": "dc61fcee9612031e",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 13,
+          "title": "tradesdontlie/tradingview-mcp：AI-assisted TradingView chart analysis — connect Claude Code to your TradingView Desktop for personal workflow automation",
+          "url": "https://github.com/tradesdontlie/tradingview-mcp",
+          "hot_value": 79,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "tradesdontlie/tradingview-mcp",
+            "description": "AI-assisted TradingView chart analysis — connect Claude Code to your TradingView Desktop for personal workflow automation"
+          },
+          "key": "5b0cd69873a476db",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 14,
+          "title": "rustfs/rustfs：RustFS is an open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph.",
+          "url": "https://github.com/rustfs/rustfs",
+          "hot_value": 267,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "rustfs/rustfs",
+            "description": "RustFS is an open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph."
+          },
+          "key": "d633861ee19754aa",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 15,
+          "title": "supabase/supabase：The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+          "url": "https://github.com/supabase/supabase",
+          "hot_value": 120,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "supabase/supabase",
+            "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications."
+          },
+          "key": "2a2c14787462d4d5",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 16,
+          "title": "coder/coder：Secure environments for developers and their agents",
+          "url": "https://github.com/coder/coder",
+          "hot_value": 478,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "coder/coder",
+            "description": "Secure environments for developers and their agents"
+          },
+          "key": "c57da82c6b7f964b",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 17,
+          "title": "ahmedkhaleel2004/gitdiagram：Free, simple, fast interactive diagrams for any GitHub repository",
+          "url": "https://github.com/ahmedkhaleel2004/gitdiagram",
+          "hot_value": 152,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "ahmedkhaleel2004/gitdiagram",
+            "description": "Free, simple, fast interactive diagrams for any GitHub repository"
+          },
+          "key": "5a9d819f881835fb",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        },
+        {
+          "source": "github_trending",
+          "rank": 18,
+          "title": "asciimoo/hister：Your own search engine",
+          "url": "https://github.com/asciimoo/hister",
+          "hot_value": 889,
+          "hot_value_raw": null,
+          "hot_label": null,
+          "extra": {
+            "repo": "asciimoo/hister",
+            "description": "Your own search engine"
+          },
+          "key": "bf5dba8048fd7a78",
+          "dup_of": null,
+          "is_new": true,
+          "streak": 1,
+          "first_seen": "2026-09-19"
+        }
+      ]
+    }
+  ]
+}

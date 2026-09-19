@@ -339,6 +339,37 @@ class OptionalSourceTests(unittest.TestCase):
             self.assertTrue(items[0]["url"].startswith("https://www.reddit.com/r/socialmedia/"))
             self.assertEqual(items[0]["hot_value"], 2841)
 
+    def test_github_trending_2026_09_19_sponsor_links(self):
+        """第二次联网回归（2026-09-19 下午）抓到的页面改版：条目内新增 /sponsors/{owner}
+        赞助按钮（可能出现在仓库标题链接之前），页头另有 /sponsors/explore 链接。
+        回归断言：赞助链接不得成为条目，仓库按 article 顺序完整解析。"""
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "trends.json"
+            code = run_tool([
+                "--offline", str(FIXTURES / "trends_optional_v2"),
+                "--sources", "github_trending",
+                "--date", "2026-09-19", "--output", str(out), "--quiet",
+            ])
+            self.assertEqual(code, 0)
+            data = load_json(out)
+            items = data["sources"][0]["items"]
+            self.assertEqual([i["url"] for i in items], [
+                "https://github.com/acme/edge-router",
+                "https://github.com/beta/notes",
+                "https://github.com/gamma/toolkit",
+            ])
+            self.assertFalse(any("sponsors" in i["url"] for i in items))
+            self.assertEqual(items[0]["hot_value"], 1204)
+            self.assertEqual(items[1]["title"], "beta/notes：Local-first notes app")
+            # 无描述条目：标题回退为仓库路径，rank 连续、star 数照常解析
+            self.assertEqual(items[2]["title"], "gamma/toolkit")
+            self.assertEqual(items[2]["hot_value"], 88)
+            self.assertEqual(items[2]["rank"], 3)
+
+    def test_empty_sources_is_parameter_error_exit_two(self):
+        code = run_tool(["--sources", ",", "--offline", str(FIXTURES / "trends_v1"), "--quiet"])
+        self.assertEqual(code, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

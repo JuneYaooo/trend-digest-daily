@@ -24,6 +24,10 @@
   （由 [scripts/aggregate_results.py](scripts/aggregate_results.py) 从 judgments 重新计算）。
 - 三轮真实失败与修复见 [iteration_notes.md](iteration_notes.md)：真实接口首跑发现百度热度字段
   误读与知乎标签代码；单测抓到已见缓存对标题变体条目重复膨胀；均已修复并加回归断言。
+- **第二次联网回归（2026-09-19 下午，v0.1.1）**：四源结构与首跑一致、全部可用；带 seen 连续两跑
+  （间隔约 3 分钟）验证增量：120 条全量 NEW → 116 已见 + 3 NEW，缓存无膨胀；Reddit 超时如实
+  标注"源不可用"；GitHub Trending 页面新增赞助链接致旧适配器混入 1 条假条目，已修复并加回归
+  测试（单测 22→24）。产物：[runs_v1/](runs_v1/) 下 `regression_2026-09-19_*`（含终端记录）。
 - 夹具全部为合成样本（见 [fixtures/README.md](fixtures/README.md)），话题、链接、热度均为虚构；
   真实拉取产物中的热榜条目版权归原作者，仅按标题与链接引用。
 - 已知限制：判定为开发 Agent 自评（model_only），未独立人工复核；跨语言同事件依赖 agent
