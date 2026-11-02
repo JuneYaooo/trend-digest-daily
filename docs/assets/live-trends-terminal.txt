@@ -1,8 +1,8 @@
-# 2026-09-19 · macOS arm64 · Python 3.13 · 大陆网络真实拉取（每源 1 个请求，超时 10s，无重试）
-$ python3 scripts/fetch_trends.py --date 2026-09-19 --output evals/runs_v1/live_trends_2026-09-19.json --seen data/seen.jsonl --seen-out data/seen.jsonl
-[g][微博热搜] 成功 · 30 条（NEW 30）
-[g][知乎热榜] 成功 · 30 条（NEW 30）
-[g][百度热搜] 成功 · 30 条（NEW 29）
-[g][HN 首页] 成功 · 30 条（NEW 30）
-[g]共 120 条 → 去重后 119 条（跨源重复 1，NEW 119）；JSON 已写入 evals/runs_v1/live_trends_2026-09-19.json
+# 2026-11-02 · macOS arm64 · Python 3.12.9 · 大陆网络真实拉取 · trend-digest-daily v0.2.0（每源 1 个请求，超时 10s，无重试；--seen 为同日早些时候 v0.1.1 首跑写出的缓存）
+$ python3 scripts/fetch_trends.py --config config.yaml --date 2026-11-02 --output evals/runs_v2/live_trends_2026-11-02.json --seen <scratchpad>/live_seen_in.jsonl --seen-out <scratchpad>/live_seen_out.jsonl
+[微博热搜] 成功 · 30 条（NEW 2）
+[知乎热榜] 成功 · 30 条（NEW 2）
+[百度热搜] 成功 · 30 条（NEW 1，跳过 1 条非自然位）
+[HN 首页] 成功 · 30 条（NEW 2）
+共 120 条 → 去重后 119 条（跨源重复 1，跨源同发话题 1，同事件候选 1 对，NEW 7）；JSON 已写入 evals/runs_v2/live_trends_2026-11-02.json
 exit_code=0

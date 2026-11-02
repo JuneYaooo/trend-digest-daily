@@ -1,0 +1,345 @@
+{
+  "schema_version": "1.0",
+  "runner": "evals/scripts/run_cases.py",
+  "case_file": "evals/cases_v2.jsonl",
+  "tool_version": "0.2.0",
+  "date": "2026-11-02",
+  "note": "t1-t7、t10-t15 为脚本层原子检查（离线合成夹具，不联网）；t8/t9 见 runs_v1，t16-t17 见 runs_v2 对应产物",
+  "results": {
+    "t1": {
+      "case_id": "t1",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0",
+          "passed": true,
+          "detail": "exit=0"
+        },
+        {
+          "check": "四源均在输出中",
+          "passed": true,
+          "detail": "['weibo', 'zhihu', 'baidu', 'hn']"
+        },
+        {
+          "check": "微博/知乎/HN ok 且有条目",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "百度标注不可用并给中文错误",
+          "passed": true,
+          "detail": "响应缺少 data 字段，接口可能改版或服务出错（status=500 Internal Server Error）"
+        },
+        {
+          "check": "汇总 15 条/重复 2/唯一 13",
+          "passed": true,
+          "detail": "{\"total_items\": 15, \"unique_items\": 13, \"duplicate_items\": 2, \"new_items\": 13, \"multi_source_topics\": 2, \"related_pairs\": 0, \"sources_ok\": 3, \"sources_unavailable\": 1}"
+        },
+        {
+          "check": "条目含 rank/title/url 规范字段",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t2": {
+      "case_id": "t2",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "标题变体命中缓存：台风 streak=3、非 NEW、first_seen 保留",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "昨日已见条目：养老服务 streak=2、非 NEW",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "新条目标 NEW",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "seen-out 6 行且 key 无重复（旧条目原地更新）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "已冷却条目保留在缓存",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t3": {
+      "case_id": "t3",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0（单源失败不拖垮整体）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "其他三源 items 不为空",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "百度错误为中文说明",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "汇总 sources_unavailable=1",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t4": {
+      "case_id": "t4",
+      "passed": true,
+      "checks": [
+        {
+          "check": "退出码 0（有空榜源成功即成功）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "知乎/HN 状态 ok 且 0 条",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "汇总全零且不崩溃",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "输出为合法 JSON（可被下游消费）",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t5": {
+      "case_id": "t5",
+      "passed": true,
+      "checks": [
+        {
+          "check": "全部源不可用时退出码 3",
+          "passed": true,
+          "detail": "exit=3"
+        },
+        {
+          "check": "仍输出合法 JSON",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "每源给出中文错误",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "sources_ok=0",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t6": {
+      "case_id": "t6",
+      "passed": true,
+      "checks": [
+        {
+          "check": "两次 --offline 运行退出码 0",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "输出 sha256 一致",
+          "passed": true,
+          "detail": "45fb2e8ae15ded6a…"
+        }
+      ]
+    },
+    "t7": {
+      "case_id": "t7",
+      "passed": true,
+      "checks": [
+        {
+          "check": "知乎 2 条被标记跨源重复",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "dup_of 主条目均来自微博且相似度≥0.5",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "不同事件未被误并（知乎其余 3 条独立）",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "英文与中文条目零误并",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t10": {
+      "case_id": "t10",
+      "passed": true,
+      "checks": [
+        {
+          "check": "rank 为首页位置（41 分新帖第 1，2765 分老帖第 4）",
+          "passed": true,
+          "detail": "[41, 300, 120, 2765]"
+        },
+        {
+          "check": "招聘帖被跳过并计数",
+          "passed": true,
+          "detail": "{\"无分数的招聘帖\": 1}"
+        },
+        {
+          "check": "rank_basis 写明首页实际位置",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "同源两帖（Who is hiring / Who wants to be hired）不互相合并",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "HTML 实体解码",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t11": {
+      "case_id": "t11",
+      "passed": true,
+      "checks": [
+        {
+          "check": "百度置顶位不占名次",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "置顶跳过计数",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t12": {
+      "case_id": "t12",
+      "passed": true,
+      "checks": [
+        {
+          "check": "RRF 把双源话题排在单源第 1 之前",
+          "passed": true,
+          "detail": "大模型价格战再升级"
+        },
+        {
+          "check": "rrf_score = 1/63 + 1/61",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "短词与长问句给出同事件候选",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "同事件候选不被自动合并",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t13": {
+      "case_id": "t13",
+      "passed": true,
+      "checks": [
+        {
+          "check": "断档 4 天后 streak 重置为 1 且 gap_days=4",
+          "passed": true,
+          "detail": "streak=1 gap=4"
+        },
+        {
+          "check": "first_seen 仍保留最早日期",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "昨天在榜则 streak+1",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "rank_delta = 昨日 #7 − 今日 #3 = 4",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t14": {
+      "case_id": "t14",
+      "passed": true,
+      "checks": [
+        {
+          "check": "中文关键词子串命中",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "OpenAI / agents 命中 AI、Agent",
+          "passed": true,
+          "detail": "[{\"key\": \"ai_tools\", \"label\": \"AI 工具\", \"matched\": [\"AI\", \"Agent\"]}]"
+        },
+        {
+          "check": "无关条目无命中",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "Complain/Bonsai 不误命中 AI",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    },
+    "t15": {
+      "case_id": "t15",
+      "passed": true,
+      "checks": [
+        {
+          "check": "未指定 --output 时 stdout 是合法 JSON",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "人类可读摘要在 stderr",
+          "passed": true,
+          "detail": ""
+        }
+      ]
+    }
+  },
+  "passed_cases": 13,
+  "total_cases": 13
+}

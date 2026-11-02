@@ -1,6 +1,9 @@
-# 博主领域配置（agent 读取，脚本不解析本文件）
+# 博主领域配置（agent 读取；fetch_trends.py --config 只解析 domains 段，输出每条的 domain_hits）
 # 用法：改成你自己的账号定位与领域关键词；删掉本文件则输出通用版日报。
 # 关键词用于"话题 ↔ 领域"匹配打分：命中越多匹配度越高，没有命中任何领域的话题进"次级观察"。
+# 写法要求：keywords 必须是一行内的 ["…", "…"] 列表。匹配规则：中文按子串；全大写英文缩写
+# （AI/GPT）区分大小写并检查边界（命中 OpenAI/ChatGPT，不命中 Complain）；其他英文词不区分大小写、
+# 只看词首（Agent 命中 Agents/Agentic）。太宽泛的词（如「工作」）会带来弱相关命中，可酌情删掉。
 
 blog:
   name: "示例博主"            # 你的账号名（只用于日报署名，可留空）
@@ -21,4 +24,4 @@ domains:
 # 数据源开关（agent 据此给 fetch_trends.py 传 --sources；默认即可不用改）
 sources:
   default: ["weibo", "zhihu", "baidu", "hn"]      # 默认启用：大陆网络直连可用
-  optional: ["reddit", "github_trending"]          # 直连可用性随网络环境波动（Reddit 实测常需代理），加 --sources 时手动带上
+  optional: ["github_trending", "reddit"]          # 加 --sources 时手动带上；Reddit 自 2026-05 起拒绝匿名访问（2026-11-02 实测 403）

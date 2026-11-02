@@ -1,0 +1,12 @@
+# 合成领域配置（测试用）
+blog:
+  name: "测试"
+domains:
+  - key: ai_tools
+    label: "AI 工具"   # 行尾注释
+    keywords: ["AI", "Agent", "大模型", "GPT"]
+  - key: career
+    label: "职场"
+    keywords: ["裁员", "离职"]
+sources:
+  default: ["weibo"]

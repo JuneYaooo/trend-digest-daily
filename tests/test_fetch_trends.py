@@ -371,5 +371,196 @@ class OptionalSourceTests(unittest.TestCase):
         self.assertEqual(code, 2)
 
 
+V2 = FIXTURES / "trends_v2"
+
+
+def run_v2(tmp: str, extra: list[str], sources: str = "weibo,zhihu,baidu,hn",
+           day: str = "2026-11-02") -> dict:
+    out = Path(tmp) / f"v2_{day}.json"
+    code = run_tool(["--offline", str(V2), "--sources", sources, "--date", day,
+                     "--output", str(out), "--quiet", *extra])
+    assert code == 0, code
+    return load_json(out)
+
+
+def items_of(data: dict, source: str) -> list[dict]:
+    return next(b for b in data["sources"] if b["source"] == source)["items"]
+
+
+class V020Tests(unittest.TestCase):
+    """v0.2.0 逻辑改进的回归测试（依据见 evals/iteration_notes.md 迭代 6）。"""
+
+    def test_hn_front_page_rank_is_page_position_and_skips_jobs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [], sources="hn")
+        block = data["sources"][0]
+        items = block["items"]
+        # 首页位置顺序保留：41 分的新帖排第 1，2765 分的老帖排最后（Algolia 模式会把它排第 1）
+        self.assertEqual([i["hot_value"] for i in items], [41, 300, 120, 2765])
+        self.assertEqual([i["rank"] for i in items], [1, 2, 3, 4])
+        self.assertEqual(block["skipped"], {"无分数的招聘帖": 1})
+        self.assertIn("首页实际位置", block["rank_basis"])
+        self.assertEqual(items[0]["extra"]["num_comments"], 16)
+        self.assertEqual(items[2]["extra"]["num_comments"], 0)  # "discuss" = 0 评论
+        self.assertEqual(items[3]["title"], "Q&A: OpenAI's new agents, explained")  # 实体解码
+        self.assertEqual(items[1]["url"], "https://news.ycombinator.com/item?id=8102")
+        self.assertEqual(items[0]["extra"]["submitted_at"], "2026-11-02T16:02:26")
+
+    def test_hn_legacy_algolia_fixture_still_parses_with_honest_rank_basis(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "t.json"
+            run_tool(["--offline", str(FIXTURES / "trends_v1"), "--sources", "hn",
+                      "--date", "2026-09-19", "--output", str(out), "--quiet"])
+            block = load_json(out)["sources"][0]
+        self.assertEqual(block["status"], "ok")
+        self.assertIn("points 降序", block["rank_basis"])
+
+    def test_same_source_titles_are_not_merged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [], sources="hn")
+        titles = {i["title"]: i for i in items_of(data, "hn")}
+        self.assertGreater(
+            ft.title_similarity("Ask HN: Who is hiring? (November 2026)",
+                                "Ask HN: Who wants to be hired? (November 2026)"), 0.6)
+        self.assertIsNone(titles["Ask HN: Who wants to be hired? (November 2026)"]["dup_of"])
+        self.assertEqual(data["summary"]["duplicate_items"], 0)
+
+    def test_baidu_pinned_item_excluded_from_rank(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [], sources="baidu")
+        block = data["sources"][0]
+        self.assertEqual([i["title"] for i in block["items"]], ["大模型价格战再升级", "初雪预报来了"])
+        self.assertEqual(block["items"][0]["rank"], 1)
+        self.assertEqual(block["skipped"], {"isTop 置顶位": 1})
+
+    def test_weibo_onboard_time_and_ad_skip_count(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [], sources="weibo")
+        block = data["sources"][0]
+        self.assertEqual(block["skipped"], {"is_ad 广告位": 1})
+        self.assertEqual(block["items"][0]["extra"]["onboard_time"], 1793600000)
+        self.assertEqual([i["rank"] for i in block["items"]], [1, 2, 3])
+
+    def test_rrf_fusion_prefers_cross_source_topics(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [])
+        canon = [i for b in data["sources"] for i in b["items"] if not i.get("dup_of")]
+        llm = next(i for i in canon if i["title"] == "大模型价格战再升级")
+        self.assertEqual(llm["fusion"]["source_count"], 2)
+        self.assertEqual(llm["fusion"]["sources_hit"],
+                         [{"source": "weibo", "rank": 3}, {"source": "baidu", "rank": 1}])
+        self.assertAlmostEqual(llm["fusion"]["rrf_score"], round(1 / 63 + 1 / 61, 6))
+        top = max(canon, key=lambda i: i["fusion"]["rrf_score"])
+        self.assertEqual(top["title"], "大模型价格战再升级")  # 双源 #3+#1 胜过单源 #1
+        dup = next(i for i in items_of(data, "baidu") if i["dup_of"])
+        self.assertIsNone(dup["fusion"])
+        self.assertEqual(data["summary"]["multi_source_topics"], 1)
+
+    def test_related_candidates_by_containment_not_merged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, [])
+        weibo = {i["title"]: i for i in items_of(data, "weibo")}
+        gsq = weibo["郭士强 下课"]
+        self.assertIsNone(gsq["dup_of"])  # 不自动合并
+        self.assertEqual([(r["source"], r["rank"]) for r in gsq["related"]], [("zhihu", 1)])
+        self.assertGreaterEqual(gsq["related"][0]["containment"], ft.RELATED_CONTAINMENT_MIN)
+        # 英文标题不计算包含度（字符 2-gram 太常见）
+        self.assertEqual(ft.title_containment("The AI cost of frameworks", "The cost of the art"), 0.0)
+        self.assertEqual(data["summary"]["related_pairs"], 1)
+
+    def test_streak_resets_after_gap_and_rank_delta(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, ["--seen", str(V2 / "seen_gap.jsonl")], sources="weibo")
+        items = {i["title"]: i for i in items_of(data, "weibo")}
+        mara = items["城市马拉松报名开启"]  # 上次 10-28，断档 4 天
+        self.assertFalse(mara["is_new"])
+        self.assertEqual(mara["streak"], 1)
+        self.assertEqual(mara["gap_days"], 4)
+        self.assertEqual(mara["first_seen"], "2026-10-20")
+        llm = items["大模型价格战再升级"]  # 昨天 #7 → 今天 #3
+        self.assertEqual(llm["streak"], 3)
+        self.assertEqual(llm["prev_rank"], 7)
+        self.assertEqual(llm["rank_delta"], 4)
+        gsq = items["郭士强 下课"]  # 同日复跑
+        self.assertEqual(gsq["streak"], 1)
+        self.assertEqual(gsq["rank_delta"], 2)
+
+    def test_seen_status_unit(self):
+        item = {"source": "weibo", "rank": 5}
+        hit = {"key": "k", "last_seen": "2026-11-01", "streak": 6, "first_seen": "2026-10-27",
+               "last_source": "zhihu", "last_rank": 1}
+        status = ft.seen_status(item, hit, "2026-11-02")
+        self.assertEqual(status["streak"], 7)
+        self.assertIsNone(status["prev_rank"])  # 不同源的名次不可比，不算 rank_delta
+        legacy = {"key": "k", "last_seen": "2026-11-01", "streak": 2, "source": "weibo"}
+        self.assertIsNone(ft.seen_status(item, legacy, "2026-11-02")["rank_delta"])  # v0.1 缓存无 last_rank
+
+    def test_summary_goes_to_stderr_and_stdout_is_valid_json(self):
+        import contextlib
+        import io
+        stdout, stderr = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = ft.run(["--offline", str(V2), "--sources", "weibo", "--date", "2026-11-02"])
+        self.assertEqual(code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["tool_version"], ft.VERSION)
+        self.assertIn("微博热搜", stderr.getvalue())
+        self.assertNotIn("[g]", stderr.getvalue())
+
+    def test_keyword_matching_rules(self):
+        m = ft.keyword_matches
+        self.assertTrue(m("AI", "OpenAI 发布新模型"))
+        self.assertTrue(m("AI", "xAI raises money"))
+        self.assertTrue(m("AI", "ai绘画火了"))
+        self.assertTrue(m("GPT", "The best ChatGPT that $100 can buy"))
+        self.assertTrue(m("GPT", "GPTs store"))
+        self.assertTrue(m("Agent", "Native Multimodality for Agentic Tasks"))
+        self.assertTrue(m("大模型", "大模型价格战再升级"))
+        # 2026-11-02 / 2026-09-19 真实标题中的子串误命中
+        for title in ("Never Complain, Never Explain", "Bonsai 2 27B", "Mathematicians Build Long-Awaited Graph",
+                      "Warren Buffett Steps Down as Berkshire Chairman", "Stairs, Levels and Levelling Up"):
+            self.assertFalse(m("AI", title), title)
+        self.assertFalse(m("AI", "AIGC 概念股"))  # 后接大写字母：另一个词
+        self.assertFalse(m("Agent", "reagent supply"))
+
+    def test_config_domains_parsed_and_hits_emitted(self):
+        domains = ft.load_domains(V2 / "domains_config.yaml")
+        self.assertEqual([d["key"] for d in domains], ["ai_tools", "career"])
+        self.assertEqual(domains[0]["label"], "AI 工具")
+        with tempfile.TemporaryDirectory() as tmp:
+            data = run_v2(tmp, ["--config", str(V2 / "domains_config.yaml")])
+        canon = {i["title"]: i for b in data["sources"] for i in b["items"]}
+        self.assertEqual(canon["大模型价格战再升级"]["domain_hits"],
+                         [{"key": "ai_tools", "label": "AI 工具", "matched": ["大模型"]}])
+        self.assertEqual(canon["如何看待某公司裁员后开放自愿离职方案？"]["domain_hits"][0]["matched"],
+                         ["裁员", "离职"])
+        self.assertEqual(canon["城市马拉松报名开启"]["domain_hits"], [])
+        self.assertIn("2 个领域", data["notes"]["domain_matching"])
+
+    def test_repo_config_parses(self):
+        domains = ft.load_domains(REPO_ROOT / "config.yaml")
+        self.assertEqual(len(domains), 3)
+        self.assertTrue(all(d["keywords"] for d in domains))
+
+    def test_bad_config_skips_matching_without_failing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "bad.yaml"
+            bad.write_text("domains:\n  - key: x\n    keywords: AI, GPT\n", encoding="utf-8")
+            data = run_v2(tmp, ["--config", str(bad)], sources="weibo")
+        self.assertIn("已跳过领域匹配", data["notes"]["domain_matching"])
+        self.assertNotIn("domain_hits", data["sources"][0]["items"][0])
+
+    def test_reddit_uses_descriptive_user_agent(self):
+        ua = ft.SOURCES["reddit"]["headers"]["User-Agent"]
+        self.assertTrue(ua.startswith("python:trend-digest-daily:v"))
+        self.assertNotIn("Mozilla", ua)
+
+    def test_v2_offline_deterministic(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a = run_v2(tmp, ["--config", str(V2 / "domains_config.yaml"), "--seen", str(V2 / "seen_gap.jsonl")])
+            b = run_v2(tmp, ["--config", str(V2 / "domains_config.yaml"), "--seen", str(V2 / "seen_gap.jsonl")])
+        self.assertEqual(json.dumps(a, sort_keys=True), json.dumps(b, sort_keys=True))
+
+
 if __name__ == "__main__":
     unittest.main()

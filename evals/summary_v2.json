@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "dimensions": [
+    "project_understanding",
+    "real_effect",
+    "iteration_improvement",
+    "effect_evaluation",
+    "showcase_integrity"
+  ],
+  "conditions": {
+    "skill": {
+      "judgment_count": 15,
+      "unique_case_count": 15,
+      "pass_count": 15,
+      "pass_rate": 1.0,
+      "pass_rate_wilson_95": [
+        0.7961,
+        1.0
+      ],
+      "critical_failure_count": 0,
+      "dimension_means_0_to_4": {
+        "project_understanding": 4.0,
+        "real_effect": 3.933,
+        "iteration_improvement": 3.467,
+        "effect_evaluation": 4.0,
+        "showcase_integrity": 4.0
+      }
+    }
+  },
+  "skill_minus_baseline_pass_rate": null,
+  "review_status": "model_only",
+  "interpretation_note": "A critical failure always fails that judgment; pass otherwise requires all atomic checks satisfied and a mean dimension score of at least 3.0/4.0. Self-assessed by the developing agent; no independent human review yet."
+}

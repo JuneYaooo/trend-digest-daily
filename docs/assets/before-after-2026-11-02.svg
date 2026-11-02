@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="864" viewBox="0 0 1200 864" role="img" aria-label="v0.1.1 与 v0.2.0 在同一份 2026-11-02 真实响应上的对比">
+<rect width="1200" height="864" fill="#FFFBF5"/>
+<text x="40" y="56" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="30" font-weight="700" fill="#1F2937">同一份真实响应，改前 vs 改后</text>
+<text x="40" y="92" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="17" fill="#6B7280">输入：2026-11-02 大陆网络各源各 1 次请求的原始响应，分别交给 v0.1.1 与 v0.2.0 处理</text>
+<text x="430" y="132" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" fill="#9CA3AF">v0.1.1（改前）</text>
+<text x="820" y="132" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" fill="#C2410C">v0.2.0（改后）</text>
+<rect x="24" y="150" width="1152" height="92" rx="10" fill="#FFF3E6"/>
+<text x="40" y="202" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">HN 名次与首页真实位置一致吗</text>
+<text x="430" y="190" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">Spearman ρ = -0.27</text>
+<text x="430" y="218" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">旧版 HN#1（2765 points）实际在首页第 25 位</text>
+<text x="790" y="190" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="190" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">ρ = 1.00</text>
+<text x="820" y="218" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">直接读首页 HTML，仍是 1 个请求</text>
+<text x="40" y="294" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">同一榜单内被误判为重复</text>
+<text x="430" y="282" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">1 组</text>
+<text x="430" y="310" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">“Who wants to be hired?” 并进 “Who is hiring?”</text>
+<text x="790" y="282" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="282" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">0 组</text>
+<text x="820" y="310" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">只在不同源之间判重</text>
+<rect x="24" y="334" width="1152" height="92" rx="10" fill="#FFF3E6"/>
+<text x="40" y="386" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">百度热搜 #1</text>
+<text x="430" y="374" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">置顶政务条目</text>
+<text x="430" y="402" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">页面上没有序号的置顶位占了名次</text>
+<text x="790" y="374" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="374" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">自然位第 1 条</text>
+<text x="820" y="402" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">置顶计入 skipped，不占名次</text>
+<text x="40" y="478" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">断档 3 天后再上榜的 streak</text>
+<text x="430" y="466" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">2（照样累加）</text>
+<text x="430" y="494" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">“连续在榜”其实不连续</text>
+<text x="790" y="466" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="466" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">1，gap_days=3</text>
+<text x="820" y="494" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">日报标为“回潮”</text>
+<rect x="24" y="518" width="1152" height="92" rx="10" fill="#FFF3E6"/>
+<text x="40" y="570" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">不加 --output 时 stdout</text>
+<text x="430" y="558" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">不是合法 JSON</text>
+<text x="430" y="586" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">摘要混进了 stdout</text>
+<text x="790" y="558" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="558" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">合法 JSON</text>
+<text x="820" y="586" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">摘要改写 stderr</text>
+<text x="40" y="662" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">英文缩写关键词的子串命中</text>
+<text x="430" y="650" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">6 处</text>
+<text x="430" y="678" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">5 处明显误命中：Complain / Stairs / Training…</text>
+<text x="790" y="650" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="650" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">0 处</text>
+<text x="820" y="678" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">缩写区分大小写并检查边界</text>
+<rect x="24" y="702" width="1152" height="92" rx="10" fill="#FFF3E6"/>
+<text x="40" y="754" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="600" fill="#1F2937">跨源排序与同事件提示</text>
+<text x="430" y="742" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#6B7280">交给 agent 主观判断</text>
+<text x="430" y="770" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#9CA3AF">无可复现的排序依据</text>
+<text x="790" y="742" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="22" fill="#C2410C">→</text>
+<text x="820" y="742" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="700" fill="#C2410C">RRF 分数 + 候选 11 对</text>
+<text x="820" y="770" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14.5" fill="#7C2D12">候选数为 09-19 入库数据重算；只提示不合并</text>
+<text x="40" y="836" font-family="PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14" fill="#9CA3AF">数据：evals/runs_v2/before_after_2026-11-02.json（由 evals/scripts/compare_versions.py 生成；原始响应未入库，只记 sha256）</text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "report": "evals/runs_v2/live_report_2026-11-02.md",
+  "trends": "evals/runs_v2/live_trends_2026-11-02.json",
+  "links_checked": 6,
+  "rank_refs_checked": 44,
+  "problems": [],
+  "passed": true
+}

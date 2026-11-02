@@ -1,0 +1,7 @@
+{"ok": 1, "data": {"hotgov": {"is_gov": 1, "word": "#某置顶政务话题#", "note": "#某置顶政务话题#"},
+ "band_list": [
+  {"realpos": 1, "word": "郭士强 下课", "note": "郭士强 下课", "num": 812345, "label_name": "爆", "icon_desc": "爆", "category": "体育", "onboard_time": 1793600000},
+  {"realpos": 2, "word": "某品牌推广话题", "note": "某品牌推广话题", "num": 500000, "is_ad": 1, "category": "广告"},
+  {"realpos": 3, "word": "城市马拉松报名开启", "note": "城市马拉松报名开启", "num": 400000, "label_name": "新", "icon_desc": "新", "category": "体育", "onboard_time": 1793610000},
+  {"realpos": 4, "word": "大模型价格战再升级", "note": "大模型价格战再升级", "num": 300000, "category": "科技", "onboard_time": 1793620000}
+ ]}}

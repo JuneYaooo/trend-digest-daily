@@ -13,3 +13,4 @@
 | `trends_all_error_v1/` | 全源失败边界：四个源全部返回错误体，脚本应以退出码 3 结束且仍输出合法 JSON |
 | `trends_optional_v1/` | 可选源：GitHub Trending HTML 与 Reddit JSON 的合成响应，用于可选源适配器测试（不联网） |
 | `trends_optional_v2/` | 回归夹具（2026-09-19 第二次联网回归发现页面改版后新增）：GitHub Trending 条目内含 `/sponsors/{owner}` 赞助按钮（出现在仓库标题链接之前）与 `/sponsors/explore` 链接，断言赞助链接不入条目、仓库按序完整解析 |
+| `trends_v2/` | v0.2.0 逻辑改进的合成夹具：HN 首页 HTML（低分新帖在前、高分老帖在后、1 条无分数招聘帖、两条同源相似月度帖、HTML 实体）、百度首条 isTop 置顶、微博含广告位与 `onboard_time`、知乎长问句包含微博短词（同事件候选）、`seen_gap.jsonl`（上次出现分别为 4 天前/昨天/今天）、`domains_config.yaml`（含行尾注释的领域配置） |

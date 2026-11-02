@@ -1,0 +1,5 @@
+{"success": true, "data": {"cards": [{"component": "tabTextList", "content": [
+  {"word": "某置顶政务新闻", "url": "https://www.baidu.com/s?wd=a", "isTop": true},
+  {"word": "大模型价格战再升级", "url": "https://www.baidu.com/s?wd=b", "newHotName": "热"},
+  {"word": "初雪预报来了", "url": "https://www.baidu.com/s?wd=c"}
+]}]}}

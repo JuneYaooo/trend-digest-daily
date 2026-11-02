@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""从 judgments_v1.jsonl 汇总评测结果，写入 summary_v1.json。
+"""从 judgments_{suite}.jsonl 汇总评测结果，写入 summary_{suite}.json（默认 v2，可 --suite v1 复算旧版）。
 
 通过口径（rubric_v1.md）：无硬失败，且五维均值 ≥3.0（脚本层用例另需全部原子检查通过，
-已在对应 judgment 的 reason 中注明）。用法：python3 evals/scripts/aggregate_results.py
+已在对应 judgment 的 reason 中注明）。用法：python3 evals/scripts/aggregate_results.py [--suite v1|v2]
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import math
 from pathlib import Path
@@ -32,9 +33,12 @@ def wilson_lower_upper(successes: int, total: int, z: float = 1.96) -> list[floa
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--suite", default="v2", choices=["v1", "v2"])
+    suite = parser.parse_args().suite
     judgments = [
         json.loads(line)
-        for line in (EVALS / "judgments_v1.jsonl").read_text(encoding="utf-8").splitlines()
+        for line in (EVALS / f"judgments_{suite}.jsonl").read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
     by_condition: dict[str, list] = {}
@@ -83,7 +87,7 @@ def main() -> int:
             "Self-assessed by the developing agent; no independent human review yet."
         ),
     }
-    (EVALS / "summary_v1.json").write_text(
+    (EVALS / f"summary_{suite}.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(json.dumps({k: v for k, v in summary.items() if k != "dimensions"}, ensure_ascii=False, indent=2))

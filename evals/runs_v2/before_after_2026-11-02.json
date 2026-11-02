@@ -1,0 +1,338 @@
+{
+  "case_id": "t16",
+  "date": "2026-11-02",
+  "input": "2026-11-02 大陆网络，各源各 1 次真实请求的原始响应（未入库），旧版 HN 读 Algolia JSON、新版读首页 HTML",
+  "raw_sha256": {
+    "baidu.json": "5a8416aae5348f2b9924c9d6f501a5931575e10d188b9505d56ca8281b517dae",
+    "github_trending.html": "38ed4767c64b8f8f772463b6d28924a02df8b0252e32e0cfb2f3b957eb9fff45",
+    "hn.html": "008ea21f1c9c9352b3075402d2530ded2baa3928aecba24020e9733c328b8f38",
+    "hn.json": "10e1d3c9ac90e3d37e7398fd0ad2808f5a20988d8f4ff26b0a823126376218e9",
+    "weibo.json": "3594b914741b78a826088796643c5a9d0deb96275d5d7124a95150c72f0f83de",
+    "zhihu.json": "7edd6790b086ccf3c290dba9c9898ba237ce6fd4bbcb615f07e2e2b3fcc58fac"
+  },
+  "old_version": "0.1.1",
+  "new_version": "0.2.0",
+  "summary": {
+    "old": {
+      "total_items": 135,
+      "unique_items": 133,
+      "duplicate_items": 2,
+      "new_items": 133,
+      "sources_ok": 5,
+      "sources_unavailable": 0
+    },
+    "new": {
+      "total_items": 135,
+      "unique_items": 134,
+      "duplicate_items": 1,
+      "new_items": 134,
+      "multi_source_topics": 1,
+      "related_pairs": 1,
+      "sources_ok": 5,
+      "sources_unavailable": 0
+    }
+  },
+  "hn_rank": {
+    "front_page_ids": 30,
+    "old_spearman_vs_front": [
+      29,
+      -0.271
+    ],
+    "new_spearman_vs_front": [
+      30,
+      1.0
+    ],
+    "old_rank1": {
+      "title": "HackerTube: YouTube built from videos recommended by HN",
+      "points": 2765,
+      "actual_front_position": 25
+    },
+    "new_rank1": {
+      "title": "Moving our warehouse off DuckDB",
+      "points": 41
+    }
+  },
+  "dedup": {
+    "old_duplicate_items": 2,
+    "new_duplicate_items": 1,
+    "old_same_source_merges": [
+      {
+        "source": "hn",
+        "title": "Ask HN: Who wants to be hired? (November 2026)",
+        "merged_into": "Ask HN: Who is hiring? (November 2026)",
+        "similarity": 0.774
+      }
+    ],
+    "new_same_source_merges": []
+  },
+  "baidu_pinned": {
+    "old_rank1": "进一步做好黄河保护治理工作",
+    "old_rank1_is_top": true,
+    "new_rank1": "加油新规来了！11月起全国推行",
+    "new_skipped": {
+      "isTop 置顶位": 1
+    }
+  },
+  "domain_matching": {
+    "ascii_keyword_disagreements": [
+      {
+        "source": "hn",
+        "title": "C64 Basic Dungeon Crawler: Stairs, Levels and Levelling Up (Part 11)",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      },
+      {
+        "source": "hn",
+        "title": "Never Complain, Never Explain",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      },
+      {
+        "source": "github_trending",
+        "title": "D4Vinci/Scrapling：🕷️ The BEST Web Scraping framework that handles everything fro",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      },
+      {
+        "source": "github_trending",
+        "title": "mattpocock/skills：Skills for Real Engineers. Straight from my .agents directory.",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      },
+      {
+        "source": "github_trending",
+        "title": "paperclipai/paperclip：The open-source app everyone uses to manage agents at work",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      },
+      {
+        "source": "github_trending",
+        "title": "p-e-w/heretic：Training-free language model modification: Remove censorship, supp",
+        "only_old": [
+          "AI"
+        ],
+        "only_new": []
+      }
+    ],
+    "items_with_domain_hits_new": 21
+  },
+  "rrf_top10_new": [
+    {
+      "title": "新华社追问国乒男队怎么了",
+      "sources_hit": [
+        {
+          "source": "weibo",
+          "rank": 1
+        },
+        {
+          "source": "baidu",
+          "rank": 21
+        }
+      ],
+      "rrf_score": 0.028739
+    },
+    {
+      "title": "加油新规来了！11月起全国推行",
+      "sources_hit": [
+        {
+          "source": "baidu",
+          "rank": 1
+        }
+      ],
+      "rrf_score": 0.016393
+    },
+    {
+      "title": "vercel-labs/agent-desktop：Agent Desktop gives any agent reli",
+      "sources_hit": [
+        {
+          "source": "github_trending",
+          "rank": 1
+        }
+      ],
+      "rrf_score": 0.016393
+    },
+    {
+      "title": "Moving our warehouse off DuckDB",
+      "sources_hit": [
+        {
+          "source": "hn",
+          "rank": 1
+        }
+      ],
+      "rrf_score": 0.016393
+    },
+    {
+      "title": "美国一公务机在居民区坠毁致9死，距特朗普的海湖庄园仅七八公里，具体情况如何？可能是什么原因？",
+      "sources_hit": [
+        {
+          "source": "zhihu",
+          "rank": 1
+        }
+      ],
+      "rrf_score": 0.016393
+    },
+    {
+      "title": "才知道改名可以改姓",
+      "sources_hit": [
+        {
+          "source": "baidu",
+          "rank": 2
+        }
+      ],
+      "rrf_score": 0.016129
+    },
+    {
+      "title": "thedotmack/claude-mem：Persistent Context Across Sessions for",
+      "sources_hit": [
+        {
+          "source": "github_trending",
+          "rank": 2
+        }
+      ],
+      "rrf_score": 0.016129
+    },
+    {
+      "title": "Ask HN: Who is hiring? (November 2026)",
+      "sources_hit": [
+        {
+          "source": "hn",
+          "rank": 2
+        }
+      ],
+      "rrf_score": 0.016129
+    },
+    {
+      "title": "2027或是最舒服年",
+      "sources_hit": [
+        {
+          "source": "weibo",
+          "rank": 2
+        }
+      ],
+      "rrf_score": 0.016129
+    },
+    {
+      "title": "美国一邮轮推出 246 万元起「终身旅居」套餐，2 年后因燃油成本乘客被赶下船，怎么看邮轮的毁约行为？",
+      "sources_hit": [
+        {
+          "source": "zhihu",
+          "rank": 2
+        }
+      ],
+      "rrf_score": 0.016129
+    }
+  ],
+  "related_candidates": {
+    "today_pairs": [
+      {
+        "a": "weibo#5 后会友期提名",
+        "b": "baidu#8 《后会友期》大爆 “泼天富贵”砸向谁",
+        "containment": 0.6
+      }
+    ],
+    "sept19_pairs": [
+      {
+        "a": "weibo#9 杨毅谈男篮不敌日本",
+        "b": "baidu#5 中国男篮不敌日本无缘决赛",
+        "containment": 0.625
+      },
+      {
+        "a": "weibo#12 郭士强 下课",
+        "b": "zhihu#13 中国男篮 77-97 不敌日本男篮后，网友称让郭士强下课，如",
+        "containment": 1.0
+      },
+      {
+        "a": "weibo#12 郭士强 下课",
+        "b": "baidu#19 郭士强该下课吗",
+        "containment": 0.75
+      },
+      {
+        "a": "weibo#16 杨毅 中国男篮",
+        "b": "zhihu#4 亚运男篮半决赛，中国男篮 77-97 不敌日本男篮，无缘亚运",
+        "containment": 0.6
+      },
+      {
+        "a": "weibo#16 杨毅 中国男篮",
+        "b": "zhihu#13 中国男篮 77-97 不敌日本男篮后，网友称让郭士强下课，如",
+        "containment": 0.6
+      },
+      {
+        "a": "weibo#16 杨毅 中国男篮",
+        "b": "baidu#5 中国男篮不敌日本无缘决赛",
+        "containment": 0.6
+      },
+      {
+        "a": "weibo#16 杨毅 中国男篮",
+        "b": "baidu#15 中国男篮比分被修正为77比97日本",
+        "containment": 0.6
+      },
+      {
+        "a": "weibo#16 杨毅 中国男篮",
+        "b": "baidu#18 杨毅犀利点评中国男篮",
+        "containment": 0.8
+      },
+      {
+        "a": "weibo#24 中国男篮vs日本男篮",
+        "b": "zhihu#4 亚运男篮半决赛，中国男篮 77-97 不敌日本男篮，无缘亚运",
+        "containment": 0.625
+      },
+      {
+        "a": "weibo#24 中国男篮vs日本男篮",
+        "b": "zhihu#13 中国男篮 77-97 不敌日本男篮后，网友称让郭士强下课，如",
+        "containment": 0.625
+      },
+      {
+        "a": "zhihu#4 亚运男篮半决赛，中国男篮 77-97 不敌日本男篮，无缘亚运",
+        "b": "baidu#5 中国男篮不敌日本无缘决赛",
+        "containment": 0.727
+      }
+    ],
+    "old_version": "v0.1.1 不输出同事件候选（0 对）"
+  },
+  "streak": {
+    "next_day_2026-11-03": {
+      "old": {
+        "streaks": [
+          2
+        ],
+        "gap_days": []
+      },
+      "new": {
+        "streaks": [
+          2
+        ],
+        "gap_days": []
+      }
+    },
+    "after_3_day_gap_2026-11-06": {
+      "old": {
+        "streaks": [
+          2
+        ],
+        "gap_days": []
+      },
+      "new": {
+        "streaks": [
+          1
+        ],
+        "gap_days": [
+          3
+        ]
+      }
+    }
+  },
+  "stdout": {
+    "old_stdout_is_json": false,
+    "new_stdout_is_json": true
+  }
+}

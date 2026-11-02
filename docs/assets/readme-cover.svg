@@ -7,19 +7,19 @@
   <text x="120" y="130" fill="#F5B79B" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" font-weight="700">PUBLIC TRENDING LISTS → DAILY TOPIC PICKS</text>
   <text x="120" y="228" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="66" font-weight="800">自媒体每日选题雷达</text>
   <text x="120" y="292" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">早上自动汇总微博 / 知乎 / 百度 / HN 公开热榜，去重聚类成</text>
-  <text x="120" y="338" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">一份选题建议清单：热度证据、切入角度、适合平台、时效窗口。</text>
+  <text x="120" y="338" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">一份选题建议清单：热度证据、切入角度、时效窗口。</text>
   <g transform="translate(120 408)">
     <rect width="360" height="120" rx="6" fill="#2A2E2C"/>
     <text x="24" y="38" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">4 个公开热榜（每源 1 请求）</text>
     <text x="24" y="70" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">微博 30 · 知乎 30 · 百度 30 · HN 30</text>
-    <text x="24" y="96" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">标题去重 + 已见缓存（NEW / 连续在榜）</text>
+    <text x="24" y="96" fill="#D6D4CB" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">跨源去重 · 名次融合排序 · 连续在榜 / 回潮</text>
   </g>
   <text x="516" y="478" fill="#F0C94B" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">→</text>
   <g transform="translate(560 408)">
     <rect width="688" height="120" rx="6" fill="#C2410C"/>
-    <text x="24" y="38" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">选题卡（2026-09-19 真实日报节选）</text>
-    <text x="24" y="70" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">智谱 Zcode 被传上传全量 Git ｜★★★★★｜知乎#1（热，1574 万）</text>
-    <text x="24" y="96" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">角度：AI 编程工具数据采集自查清单 · 时效：24h 内</text>
+    <text x="24" y="38" fill="#FFFFFF" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700">选题卡（v0.2.0 · 2026-11-02 真实日报节选）</text>
+    <text x="24" y="70" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">微软裁员，Copilot 部门也没躲过 ｜★★★｜知乎#9 · 知乎#14（热）</text>
+    <text x="24" y="96" fill="#FBE3D5" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">角度：AI 部门也裁员说明了什么 · 时效：3 天内</text>
   </g>
-  <text x="120" y="572" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">样例取自仓库内真实运行产物 evals/runs_v1/live_report_2026-09-19.md；热榜条目版权归原作者，仅按标题与链接引用</text>
+  <text x="120" y="572" fill="#555954" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">样例取自真实运行产物 evals/runs_v2/live_report_2026-11-02.md；热榜条目版权归原作者，仅按标题与链接引用</text>
 </svg>

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""运行 cases_v1.jsonl 中脚本层的原子检查（t1-t7），产出证据 JSON。
+"""运行脚本层原子检查（v1: t1-t7；v2 新增 t10-t15），产出证据 JSON。
 
 t8（真实拉取）由当次 live 运行的产物与 JSON 内 requests 字段佐证；
 t9（agent 日报）按 rubric_v1.md 人工/自评判定。全部离线，不访问网络。
 
-用法：python3 evals/scripts/run_cases.py [--output evals/runs_v1/case_results_v1.json]
+用法：python3 evals/scripts/run_cases.py [--output evals/runs_v2/case_results_v2.json]
 """
 
 from __future__ import annotations
@@ -171,18 +171,114 @@ def case_t7(tmp: Path) -> list[dict]:
     ]
 
 
+V2 = FIXTURES / "trends_v2"
+
+
+def run_v2(tmp: Path, name: str, extra: list[str], sources: str = DEFAULT_SOURCES) -> dict:
+    out = tmp / f"{name}.json"
+    code = run_tool(["--offline", str(V2), "--sources", sources, "--date", "2026-11-02",
+                     "--output", str(out), "--quiet", *extra])
+    data = load(out)
+    data["_exit"] = code
+    return data
+
+
+def case_t10(tmp: Path) -> list[dict]:
+    data = run_v2(tmp, "t10", [], sources="hn")
+    block = data["sources"][0]
+    values = [i["hot_value"] for i in block["items"]]
+    return [
+        check("rank 为首页位置（41 分新帖第 1，2765 分老帖第 4）", values == [41, 300, 120, 2765], str(values)),
+        check("招聘帖被跳过并计数", block["skipped"] == {"无分数的招聘帖": 1}, json.dumps(block["skipped"], ensure_ascii=False)),
+        check("rank_basis 写明首页实际位置", "首页实际位置" in block["rank_basis"]),
+        check("同源两帖（Who is hiring / Who wants to be hired）不互相合并",
+              data["summary"]["duplicate_items"] == 0),
+        check("HTML 实体解码", any(i["title"].startswith("Q&A: OpenAI's") for i in block["items"])),
+    ]
+
+
+def case_t11(tmp: Path) -> list[dict]:
+    data = run_v2(tmp, "t11", [], sources="baidu")
+    block = data["sources"][0]
+    return [
+        check("百度置顶位不占名次", [i["title"] for i in block["items"]] == ["大模型价格战再升级", "初雪预报来了"]),
+        check("置顶跳过计数", block["skipped"] == {"isTop 置顶位": 1}),
+    ]
+
+
+def case_t12(tmp: Path) -> list[dict]:
+    data = run_v2(tmp, "t12", [])
+    canon = [i for b in data["sources"] for i in b["items"] if not i.get("dup_of")]
+    top = max(canon, key=lambda i: i["fusion"]["rrf_score"])
+    gsq = next(i for i in canon if i["title"] == "郭士强 下课")
+    return [
+        check("RRF 把双源话题排在单源第 1 之前", top["title"] == "大模型价格战再升级", top["title"]),
+        check("rrf_score = 1/63 + 1/61", abs(top["fusion"]["rrf_score"] - (1 / 63 + 1 / 61)) < 1e-6),
+        check("短词与长问句给出同事件候选", [(r["source"], r["rank"]) for r in gsq["related"]] == [("zhihu", 1)]),
+        check("同事件候选不被自动合并", gsq["dup_of"] is None),
+    ]
+
+
+def case_t13(tmp: Path) -> list[dict]:
+    data = run_v2(tmp, "t13", ["--seen", str(V2 / "seen_gap.jsonl")], sources="weibo")
+    items = {i["title"]: i for i in data["sources"][0]["items"]}
+    mara, llm = items["城市马拉松报名开启"], items["大模型价格战再升级"]
+    return [
+        check("断档 4 天后 streak 重置为 1 且 gap_days=4", mara["streak"] == 1 and mara["gap_days"] == 4,
+              f"streak={mara['streak']} gap={mara['gap_days']}"),
+        check("first_seen 仍保留最早日期", mara["first_seen"] == "2026-10-20"),
+        check("昨天在榜则 streak+1", llm["streak"] == 3),
+        check("rank_delta = 昨日 #7 − 今日 #3 = 4", llm["rank_delta"] == 4),
+    ]
+
+
+def case_t14(tmp: Path) -> list[dict]:
+    data = run_v2(tmp, "t14", ["--config", str(V2 / "domains_config.yaml")])
+    canon = {i["title"]: i for b in data["sources"] for i in b["items"]}
+    hn_titles = [i for i in canon.values() if i["source"] == "hn"]
+    openai = next(i for i in hn_titles if i["title"].startswith("Q&A"))
+    return [
+        check("中文关键词子串命中", canon["大模型价格战再升级"]["domain_hits"][0]["matched"] == ["大模型"]),
+        check("OpenAI / agents 命中 AI、Agent", openai["domain_hits"][0]["matched"] == ["AI", "Agent"],
+              json.dumps(openai["domain_hits"], ensure_ascii=False)),
+        check("无关条目无命中", canon["城市马拉松报名开启"]["domain_hits"] == []),
+        check("Complain/Bonsai 不误命中 AI",
+              not ft.keyword_matches("AI", "Never Complain, Never Explain")
+              and not ft.keyword_matches("AI", "Bonsai 2 27B")),
+    ]
+
+
+def case_t15(tmp: Path) -> list[dict]:
+    import contextlib
+    import io
+    stdout, stderr = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+        code = ft.run(["--offline", str(V2), "--sources", "weibo", "--date", "2026-11-02"])
+    try:
+        json.loads(stdout.getvalue())
+        valid = True
+    except json.JSONDecodeError:
+        valid = False
+    return [
+        check("未指定 --output 时 stdout 是合法 JSON", code == 0 and valid),
+        check("人类可读摘要在 stderr", "微博热搜" in stderr.getvalue()),
+    ]
+
+
 CASES = {"t1": case_t1, "t2": case_t2, "t3": case_t3, "t4": case_t4,
-         "t5": case_t5, "t6": case_t6, "t7": case_t7}
+         "t5": case_t5, "t6": case_t6, "t7": case_t7,
+         "t10": case_t10, "t11": case_t11, "t12": case_t12, "t13": case_t13,
+         "t14": case_t14, "t15": case_t15}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", default=str(REPO_ROOT / "evals/runs_v1/case_results_v1.json"))
+    parser.add_argument("--output", default=str(REPO_ROOT / "evals/runs_v2/case_results_v2.json"))
     args = parser.parse_args()
 
     results = {}
     with tempfile.TemporaryDirectory() as tmp:
-        for case_id in sorted(CASES):
+        for case_id in sorted(CASES, key=lambda c: int(c[1:])):
             checks = CASES[case_id](Path(tmp))
             results[case_id] = {
                 "case_id": case_id,
@@ -192,9 +288,10 @@ def main() -> int:
     payload = {
         "schema_version": "1.0",
         "runner": "evals/scripts/run_cases.py",
-        "case_file": "evals/cases_v1.jsonl",
-        "date": "2026-09-19",
-        "note": "t1-t7 为脚本层原子检查（离线夹具，不联网）；t8/t9 证据见 runs_v1 对应产物",
+        "case_file": "evals/cases_v2.jsonl",
+        "tool_version": ft.VERSION,
+        "date": "2026-11-02",
+        "note": "t1-t7、t10-t15 为脚本层原子检查（离线合成夹具，不联网）；t8/t9 见 runs_v1，t16-t17 见 runs_v2 对应产物",
         "results": results,
         "passed_cases": sum(1 for r in results.values() if r["passed"]),
         "total_cases": len(results),

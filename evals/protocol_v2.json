@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "suite": "trend-digest-daily-v2",
+  "case_file": "cases_v2.jsonl",
+  "rubric_file": "rubric_v2.md",
+  "layers": {
+    "script_behavior": {
+      "runner": "python3 evals/scripts/run_cases.py（仓库根目录执行）：t1-t7（v1 夹具）+ t10-t15（v2 合成夹具 evals/fixtures/trends_v2/），结果写入 runs_v2/case_results_v2.json",
+      "runs_per_case": 1,
+      "network_policy": "全部离线"
+    },
+    "live_before_after": {
+      "runner": "python3 evals/scripts/compare_versions.py --raw <冻结原始响应目录>（旧版代码取自提交 4c26a28 即 v0.1.1）",
+      "input": "2026-11-02 大陆网络，微博/知乎/百度 JSON、HN 首页 HTML 与 Algolia JSON、GitHub Trending HTML 各 1 次请求的原始响应；原始响应含第三方摘要与用户名，不入库，仅在结果中记录 sha256",
+      "output": "runs_v2/before_after_2026-11-02.json",
+      "runs_per_case": 1
+    },
+    "live_fetch": {
+      "runner": "python3 scripts/fetch_trends.py --config config.yaml --date 2026-11-02 --output evals/runs_v2/live_trends_2026-11-02.json --seen <同日 v0.1.1 首跑缓存> --seen-out <临时文件>",
+      "terminal_record": "runs_v2/live_2026-11-02_terminal.txt",
+      "optional_sources": "runs_v2/live_optional_2026-11-02.json（Reddit 403、GitHub Trending 15 条）",
+      "network_policy": "每源恰 1 个 HTTP 请求、超时 10s、无重试"
+    },
+    "agent_workflow": {
+      "runner": "Claude Code 中的 Agent（Claude Opus 5.5）依 SKILL.md 与 references/report-format.md（v0.2.0）把当日 JSON 渲染为 runs_v2/live_report_2026-11-02.md；evals/scripts/verify_report.py 回核链接/名次/热度数字",
+      "check_output": "runs_v2/report_check_2026-11-02.json",
+      "runs_per_case": 1
+    }
+  },
+  "conditions": [
+    "skill"
+  ],
+  "baseline_note": "本轮对比对象是同一输入上的旧版本（v0.1.1），不是无 Skill 的 agent；人工刷榜 SOP 无法在同一夹具上自动化复现，未做数值对比。",
+  "judging": {
+    "judge": "开发 Agent（Claude Opus 5.5）自评，review_status=model_only",
+    "blind_condition_labels": false,
+    "human_review": "尚未进行独立人工复核"
+  },
+  "pass_rule": {
+    "critical_failure_must_be_false": true,
+    "script_layer": "全部原子检查通过",
+    "agent_layer_minimum_mean_dimension_score": 3.0
+  },
+  "current_run": {
+    "status": "completed",
+    "date": "2026-11-02",
+    "model": "Claude Opus 5.5（Claude Code）",
+    "skill_version": "0.2.0",
+    "environment": {
+      "os": "macOS 26.2 arm64",
+      "python": "3.12.9",
+      "network": "中国大陆网络直连；Reddit 403，其余可达"
+    },
+    "artifacts": [
+      "runs_v2/case_results_v2.json",
+      "runs_v2/before_after_2026-11-02.json",
+      "runs_v2/live_trends_2026-11-02.json",
+      "runs_v2/live_2026-11-02_terminal.txt",
+      "runs_v2/live_optional_2026-11-02.json",
+      "runs_v2/live_report_2026-11-02.md",
+      "runs_v2/report_check_2026-11-02.json"
+    ]
+  },
+  "not_run": [
+    "独立人工复核",
+    "多日连续真实运行下的 rank_delta / 连续在榜验证（本轮只用合成缓存与模拟日期验证）",
+    "Reddit OAuth 通道（未实现）"
+  ]
+}

@@ -8,6 +8,9 @@ License, Version 2.0.
 Products named in references/benchmarks.md and references/sources.md identify
 sources of design lessons and public data endpoints only. Those products and
 any third-party materials remain subject to their own terms; nothing from them
-is redistributed in this repository. All evaluation fixtures are synthetic;
+is redistributed in this repository. Ideas borrowed from open-source projects
+(for example TrendRadar, newsnow, DailyHotApi) were re-implemented from their
+published descriptions; no third-party source code was copied. All evaluation fixtures are synthetic. Raw third-party responses used for the
+2026-11-02 before/after comparison are not committed (only their SHA-256);
 trending-list content captured for demonstrations belongs to its original
 authors and is quoted by title and link only.
