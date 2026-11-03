@@ -1,95 +1,250 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="t d">
   <title id="t">每日选题雷达 trend-digest-daily</title>
-  <desc id="d">汇总微博、知乎、百度、Hacker News 公开热榜，去重排序、对照你的领域，交出当天能写的选题卡</desc>
+  <desc id="d">雷达扫过微博、知乎、百度、Hacker News 四个公开热榜，按你的领域挑出今天能写的选题卡</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFF8EF"/>
-      <stop offset="1" stop-color="#F6EEE3"/>
+      <stop offset="0" stop-color="#FFF7EE"/>
+      <stop offset="0.55" stop-color="#FDEBDD"/>
+      <stop offset="1" stop-color="#F9DCE0"/>
     </linearGradient>
-    <radialGradient id="sweep" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 210) scale(150)">
-      <stop offset="0" stop-color="#EA580C" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#EA580C" stop-opacity="0.02"/>
+    <radialGradient id="sun" cx="1130" cy="96" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFB86B" stop-opacity="0.75"/>
+      <stop offset="0.45" stop-color="#FDBA8C" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FDBA8C" stop-opacity="0"/>
     </radialGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#7C4A1E" flood-opacity="0.16"/>
+    <radialGradient id="glowL" cx="120" cy="540" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F9A8B8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#F9A8B8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#B45309" fill-opacity="0.10"/>
+    </pattern>
+    <radialGradient id="face" cx="850" cy="290" r="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2E2946"/>
+      <stop offset="0.75" stop-color="#1D1A2E"/>
+      <stop offset="1" stop-color="#15131F"/>
+    </radialGradient>
+    <linearGradient id="sweep" x1="819" y1="115" x2="996" y2="188" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FB923C" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FB923C" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F3E3D3"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F97316"/>
+      <stop offset="1" stop-color="#E11D48"/>
+    </linearGradient>
+    <linearGradient id="mug" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F1E2D2"/>
+    </linearGradient>
+    <radialGradient id="blip" r="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#7C2D12" flood-opacity="0.10"/>
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#7C2D12" flood-opacity="0.16"/>
+    </filter>
+    <filter id="shSoft" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#7C2D12" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4"/>
     </filter>
   </defs>
 
-  <rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+  <!-- 背景 -->
+  <rect width="1280" height="560" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="560" rx="28" fill="url(#dots)"/>
+  <rect width="1280" height="560" rx="28" fill="url(#glowL)"/>
+  <rect width="1280" height="560" rx="28" fill="url(#sun)"/>
+  <circle cx="1130" cy="96" r="54" fill="#FFC58A" fill-opacity="0.55"/>
+  <circle cx="1130" cy="96" r="36" fill="#FFB067" fill-opacity="0.6"/>
 
-  <!-- 左侧文字 -->
   <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
-    <rect x="64" y="62" width="232" height="32" rx="16" fill="#FDE3D0"/>
-    <circle cx="84" cy="78" r="5" fill="#EA580C"/>
-    <text x="98" y="84" font-size="15" font-weight="600" fill="#9A3412" letter-spacing="1">AGENT SKILL · 自媒体</text>
 
-    <text x="62" y="160" font-size="58" font-weight="800" fill="#1C1917" letter-spacing="2">每日选题雷达</text>
-    <text x="66" y="198" font-size="20" fill="#A8A29E" font-family="'SF Mono',Menlo,Consolas,monospace" letter-spacing="1">trend-digest-daily</text>
-
-    <text x="64" y="252" font-size="21" fill="#44403C">一次看完微博、知乎、百度、HN 四个公开热榜，</text>
-    <text x="64" y="284" font-size="21" fill="#44403C">按你的领域挑出今天能写的 3–5 个选题。</text>
-
-    <g font-size="15" fill="#57534E">
-      <rect x="64" y="322" width="150" height="34" rx="8" fill="#FFFFFF" stroke="#E7DCCD"/>
-      <text x="139" y="344" text-anchor="middle">不用账号和 Key</text>
-      <rect x="226" y="322" width="150" height="34" rx="8" fill="#FFFFFF" stroke="#E7DCCD"/>
-      <text x="301" y="344" text-anchor="middle">每源每天 1 个请求</text>
-      <rect x="388" y="322" width="150" height="34" rx="8" fill="#FFFFFF" stroke="#E7DCCD"/>
-      <text x="463" y="344" text-anchor="middle">数据只存在本地</text>
+    <!-- 左侧文字 -->
+    <g filter="url(#shSoft)">
+      <rect x="72" y="70" width="252" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.85" stroke="#F6CBA8"/>
     </g>
-  </g>
+    <circle cx="94" cy="88" r="6" fill="#F97316"/>
+    <circle cx="94" cy="88" r="10" fill="none" stroke="#F97316" stroke-opacity="0.35" stroke-width="2"/>
+    <text x="112" y="94" font-size="15" font-weight="600" fill="#9A3412" letter-spacing="1">AGENT SKILL · 自媒体选题</text>
 
-  <!-- 雷达 -->
-  <g>
-    <circle cx="820" cy="210" r="150" fill="#FFFFFF" fill-opacity="0.55"/>
-    <path d="M820 210 L820 60 A150 150 0 0 1 961 159 Z" fill="url(#sweep)"/>
-    <g fill="none" stroke="#E2D3C0" stroke-width="1.5">
-      <circle cx="820" cy="210" r="150"/>
-      <circle cx="820" cy="210" r="100" stroke-dasharray="4 6"/>
-      <circle cx="820" cy="210" r="50" stroke-dasharray="4 6"/>
-      <line x1="670" y1="210" x2="970" y2="210" stroke-dasharray="2 6"/>
-      <line x1="820" y1="60" x2="820" y2="360" stroke-dasharray="2 6"/>
+    <text x="68" y="196" font-size="72" font-weight="800" fill="#1C1426" letter-spacing="3">每日选题雷达</text>
+    <rect x="72" y="214" width="96" height="6" rx="3" fill="url(#accent)"/>
+    <text x="184" y="222" font-size="18" fill="#A16244" font-family="'SF Mono',Menlo,Consolas,monospace" letter-spacing="1">trend-digest-daily</text>
+
+    <text x="72" y="282" font-size="23" fill="#3B2F38">每天早上扫一遍<tspan font-weight="700" fill="#C2410C">四个公开热榜</tspan>，</text>
+    <text x="72" y="320" font-size="23" fill="#3B2F38">按你的领域挑出<tspan font-weight="700" fill="#C2410C">今天就能写的 3–5 个选题</tspan>。</text>
+
+    <!-- 三个卖点 -->
+    <g font-size="14" fill="#44343C">
+      <g filter="url(#shSoft)">
+        <rect x="72" y="364" width="164" height="44" rx="12" fill="#FFFFFF"/>
+        <rect x="246" y="364" width="176" height="44" rx="12" fill="#FFFFFF"/>
+        <rect x="432" y="364" width="158" height="44" rx="12" fill="#FFFFFF"/>
+      </g>
+      <!-- 钥匙（划掉） -->
+      <circle cx="98" cy="386" r="13" fill="#FFEDD5"/>
+      <circle cx="94" cy="386" r="4.2" fill="none" stroke="#EA580C" stroke-width="2"/>
+      <path d="M98 386h8M103 386v3" stroke="#EA580C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M89 395l18-18" stroke="#E11D48" stroke-width="2" stroke-linecap="round"/>
+      <text x="119" y="391">不用账号和 Key</text>
+      <!-- 1 个请求 -->
+      <circle cx="272" cy="386" r="13" fill="#E0F2FE"/>
+      <text x="272" y="391" text-anchor="middle" font-size="12" font-weight="800" fill="#0369A1" font-family="'SF Mono',Menlo,Consolas,monospace">1×</text>
+      <text x="294" y="391">每源只发 1 个请求</text>
+      <!-- 本地 -->
+      <circle cx="458" cy="386" r="13" fill="#DCFCE7"/>
+      <rect x="451" y="380" width="14" height="10" rx="2" fill="none" stroke="#15803D" stroke-width="1.8"/>
+      <path d="M448 393h20" stroke="#15803D" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="480" y="391">数据只存在本地</text>
     </g>
-    <line x1="820" y1="210" x2="961" y2="159" stroke="#EA580C" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="820" cy="210" r="7" fill="#EA580C"/>
 
-    <!-- 信号点 -->
-    <circle cx="905" cy="130" r="6" fill="#EA580C"/>
-    <circle cx="905" cy="130" r="13" fill="none" stroke="#EA580C" stroke-opacity="0.35" stroke-width="2"/>
-    <circle cx="760" cy="150" r="4" fill="#C2B4A3"/>
-    <circle cx="742" cy="282" r="4" fill="#C2B4A3"/>
-    <circle cx="880" cy="300" r="4" fill="#C2B4A3"/>
-
-    <!-- 来源标签 -->
-    <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="15" font-weight="600">
-      <rect x="680" y="96" width="56" height="28" rx="14" fill="#FFFFFF" stroke="#F2C9C9"/>
-      <text x="708" y="115" text-anchor="middle" fill="#DC2626">微博</text>
-      <rect x="652" y="226" width="56" height="28" rx="14" fill="#FFFFFF" stroke="#BFD7F5"/>
-      <text x="680" y="245" text-anchor="middle" fill="#1D64C8">知乎</text>
-      <rect x="760" y="318" width="56" height="28" rx="14" fill="#FFFFFF" stroke="#C9CDF5"/>
-      <text x="788" y="337" text-anchor="middle" fill="#3B48C4">百度</text>
-      <rect x="880" y="64" width="50" height="28" rx="14" fill="#FFFFFF" stroke="#F6D2B4"/>
-      <text x="905" y="83" text-anchor="middle" fill="#EA580C">HN</text>
+    <!-- 流程小字 -->
+    <g font-size="15" fill="#8A6B62">
+      <text x="72" y="470">热榜</text>
+      <path d="M110 465h22" stroke="#E9A47C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M128 461l5 4-5 4" fill="none" stroke="#E9A47C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="142" y="470">去重 · 按名次融合</text>
+      <path d="M272 465h22" stroke="#E9A47C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M290 461l5 4-5 4" fill="none" stroke="#E9A47C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="304" y="470">对照领域</text>
+      <path d="M370 465h22" stroke="#E9A47C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M388 461l5 4-5 4" fill="none" stroke="#E9A47C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="402" y="470" font-weight="700" fill="#C2410C">选题卡</text>
     </g>
-  </g>
 
-  <!-- 选题卡 -->
-  <g filter="url(#shadow)">
-    <rect x="938" y="150" width="210" height="168" rx="14" fill="#FFFFFF"/>
-  </g>
-  <rect x="938" y="150" width="6" height="168" rx="3" fill="#EA580C"/>
-  <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif">
-    <text x="962" y="184" font-size="16" font-weight="700" fill="#1C1917">今日选题卡</text>
-    <text x="1128" y="184" font-size="14" text-anchor="end" fill="#F59E0B">★★★</text>
-    <rect x="962" y="202" width="162" height="9" rx="4.5" fill="#E7E0D6"/>
-    <rect x="962" y="220" width="120" height="9" rx="4.5" fill="#EFE9E1"/>
-    <rect x="962" y="244" width="64" height="24" rx="6" fill="#FDE3D0"/>
-    <text x="994" y="261" font-size="13" text-anchor="middle" fill="#9A3412">热度证据</text>
-    <rect x="1034" y="244" width="64" height="24" rx="6" fill="#DDF1EC"/>
-    <text x="1066" y="261" font-size="13" text-anchor="middle" fill="#0F766E">切入角度</text>
-    <rect x="962" y="276" width="64" height="24" rx="6" fill="#E8EEF9"/>
-    <text x="994" y="293" font-size="13" text-anchor="middle" fill="#1D4ED8">时效窗口</text>
-    <rect x="1034" y="276" width="64" height="24" rx="6" fill="#F1ECE4"/>
-    <text x="1066" y="293" font-size="13" text-anchor="middle" fill="#57534E">原帖链接</text>
+    <!-- 雷达 -->
+    <circle cx="850" cy="290" r="196" fill="url(#rim)" filter="url(#sh)"/>
+    <circle cx="850" cy="290" r="196" fill="none" stroke="#F1D4BC" stroke-width="1.5"/>
+    <circle cx="850" cy="290" r="180" fill="url(#face)"/>
+    <g fill="none" stroke="#FFFFFF" stroke-opacity="0.12">
+      <circle cx="850" cy="290" r="60"/>
+      <circle cx="850" cy="290" r="120"/>
+      <circle cx="850" cy="290" r="170" stroke-dasharray="2 6"/>
+      <path d="M670 290h360M850 110v360"/>
+      <path d="M723 163l254 254M977 163l-254 254" stroke-opacity="0.05"/>
+    </g>
+    <!-- 刻度 -->
+    <g stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round">
+      <path d="M850 114v8M850 458v8M674 290h8M1018 290h8"/>
+    </g>
+    <!-- 扫描扇面 -->
+    <path d="M850 290L819.1 114.7A178 178 0 0 1 995.8 187.9Z" fill="url(#sweep)"/>
+    <path d="M850 290L995.8 187.9" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- 暗淡的普通条目 -->
+    <g fill="#FFFFFF" fill-opacity="0.28">
+      <circle cx="820" cy="196" r="3"/>
+      <circle cx="884" cy="252" r="2.5"/>
+      <circle cx="716" cy="306" r="3"/>
+      <circle cx="866" cy="414" r="2.5"/>
+      <circle cx="958" cy="276" r="3"/>
+      <circle cx="796" cy="320" r="2.5"/>
+      <circle cx="742" cy="196" r="2.5"/>
+      <circle cx="914" cy="430" r="2"/>
+      <circle cx="986" cy="330" r="2.5"/>
+    </g>
+
+    <!-- 四个平台的亮点 -->
+    <g>
+      <circle cx="932" cy="170" r="22" fill="none" stroke="#FF6B6B" stroke-opacity="0.35" stroke-width="2"/>
+      <circle cx="932" cy="170" r="34" fill="none" stroke="#FF6B6B" stroke-opacity="0.15" stroke-width="2"/>
+      <circle cx="932" cy="170" r="10" fill="#FF4D5E" filter="url(#glow)"/>
+      <circle cx="932" cy="170" r="6.5" fill="#FF5A67"/>
+      <circle cx="930" cy="168" r="2.2" fill="#FFFFFF"/>
+
+      <circle cx="760" cy="238" r="9" fill="#3B82F6" filter="url(#glow)"/>
+      <circle cx="760" cy="238" r="5.5" fill="#4F8DF7"/>
+      <circle cx="790" cy="378" r="9" fill="#6366F1" filter="url(#glow)"/>
+      <circle cx="790" cy="378" r="5.5" fill="#7C7FF5"/>
+      <circle cx="935" cy="350" r="9" fill="#FF8A1F" filter="url(#glow)"/>
+      <circle cx="935" cy="350" r="5.5" fill="#FF9A3C"/>
+    </g>
+    <!-- 中心 -->
+    <circle cx="850" cy="290" r="9" fill="#FB923C"/>
+    <circle cx="850" cy="290" r="4" fill="#FFF7ED"/>
+
+    <!-- 平台标签 -->
+    <g font-size="15" font-weight="700">
+      <g filter="url(#shSoft)">
+        <rect x="628" y="100" width="98" height="38" rx="19" fill="#FFFFFF"/>
+        <rect x="586" y="218" width="98" height="38" rx="19" fill="#FFFFFF"/>
+        <rect x="610" y="334" width="98" height="38" rx="19" fill="#FFFFFF"/>
+        <rect x="660" y="458" width="104" height="38" rx="19" fill="#FFFFFF"/>
+      </g>
+      <circle cx="649" cy="119" r="12" fill="#FF4D5E"/>
+      <text x="649" y="124" font-size="13" fill="#FFFFFF" text-anchor="middle">微</text>
+      <text x="669" y="124" fill="#B4232F">微博</text>
+      <circle cx="607" cy="237" r="12" fill="#2F6FEB"/>
+      <text x="607" y="242" font-size="13" fill="#FFFFFF" text-anchor="middle">知</text>
+      <text x="627" y="242" fill="#1E4FB8">知乎</text>
+      <circle cx="631" cy="353" r="12" fill="#5B5FEF"/>
+      <text x="631" y="358" font-size="13" fill="#FFFFFF" text-anchor="middle">百</text>
+      <text x="651" y="358" fill="#3F3FB8">百度</text>
+      <rect x="670" y="465" width="24" height="24" rx="5" fill="#FF6A00"/>
+      <text x="682" y="482" font-size="14" fill="#FFFFFF" text-anchor="middle" font-family="Verdana,Arial,sans-serif">Y</text>
+      <text x="702" y="483" fill="#B44A0A">HN 首页</text>
+    </g>
+
+    <!-- 从亮点射向选题卡的光束 -->
+    <path d="M944 166C972 150 990 146 1012 150" fill="none" stroke="#FB7185" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+
+    <!-- 选题卡堆 -->
+    <g transform="rotate(9 1120 300)" filter="url(#shSoft)">
+      <rect x="994" y="160" width="252" height="262" rx="18" fill="#FFF1E6" stroke="#F6D2B5"/>
+    </g>
+    <g transform="rotate(4 1120 300)" filter="url(#shSoft)">
+      <rect x="994" y="160" width="252" height="262" rx="18" fill="#FFF8F2" stroke="#F6D2B5"/>
+    </g>
+    <g filter="url(#sh)">
+      <rect x="994" y="150" width="252" height="270" rx="18" fill="#FFFFFF"/>
+    </g>
+    <rect x="994" y="150" width="252" height="270" rx="18" fill="none" stroke="#F3DCC8"/>
+    <path d="M994 168a18 18 0 0 1 18-18h216a18 18 0 0 1 18 18v6H994z" fill="url(#accent)"/>
+
+    <text x="1014" y="204" font-size="13" font-weight="700" fill="#C2410C" letter-spacing="1">今日必看 · 第 1 张</text>
+    <text x="1226" y="204" font-size="15" fill="#F59E0B" text-anchor="end" letter-spacing="1">★★★</text>
+    <text x="1014" y="234" font-size="16.5" font-weight="700" fill="#1C1426">微软裁员：6 万人可自愿</text>
+    <text x="1014" y="258" font-size="16.5" font-weight="700" fill="#1C1426">离职，Copilot 部门也没躲过</text>
+
+    <path d="M1014 276h212" stroke="#F3E6DA"/>
+    <g font-size="13">
+      <circle cx="1022" cy="296" r="8" fill="#FEE2E2"/>
+      <path d="M1018 299l3-4 2 2 3-5" fill="none" stroke="#DC2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="1036" y="301" fill="#8A7570">热度证据</text>
+      <text x="1226" y="301" fill="#2B2230" text-anchor="end" font-weight="600">知乎#9 · 知乎#14</text>
+
+      <circle cx="1022" cy="324" r="8" fill="#E0E7FF"/>
+      <circle cx="1022" cy="324" r="4" fill="none" stroke="#4F46E5" stroke-width="1.5"/>
+      <path d="M1022 322v2.4l1.6 1" stroke="#4F46E5" stroke-width="1.3" stroke-linecap="round"/>
+      <text x="1036" y="329" fill="#8A7570">时效窗口</text>
+      <text x="1226" y="329" fill="#2B2230" text-anchor="end" font-weight="600">3 天内</text>
+    </g>
+
+    <g font-size="12.5" font-weight="600">
+      <rect x="1014" y="350" width="56" height="26" rx="13" fill="#FFEDD5"/>
+      <text x="1042" y="367.5" fill="#C2410C" text-anchor="middle">职场</text>
+      <rect x="1078" y="350" width="74" height="26" rx="13" fill="#E0E7FF"/>
+      <text x="1115" y="367.5" fill="#4338CA" text-anchor="middle">AI 工具</text>
+      <rect x="1160" y="350" width="66" height="26" rx="13" fill="#DCFCE7"/>
+      <text x="1193" y="367.5" fill="#15803D" text-anchor="middle">有链接</text>
+    </g>
+    <rect x="1014" y="390" width="150" height="7" rx="3.5" fill="#F3E8DE"/>
+    <rect x="1014" y="402" width="104" height="7" rx="3.5" fill="#F7EFE8"/>
+
+    <!-- 咖啡杯：每天早上 -->
+    <g transform="translate(1150 452)">
+      <ellipse cx="34" cy="62" rx="46" ry="8" fill="#7C2D12" fill-opacity="0.10"/>
+      <path d="M8 28 q-2 -10 4 -16 M28 24 q-3 -10 3 -16 M46 28 q-2 -10 4 -16" fill="none" stroke="#E9A47C" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.7"/>
+      <path d="M0 32h62v14a22 22 0 0 1-22 20h-18a22 22 0 0 1-22-20z" fill="url(#mug)" stroke="#E7CDB6" stroke-width="1.5"/>
+      <path d="M62 38h6a9 9 0 0 1 0 18h-6" fill="none" stroke="#E7CDB6" stroke-width="5" stroke-linecap="round"/>
+      <rect x="0" y="32" width="62" height="6" fill="#F97316" fill-opacity="0.85"/>
+    </g>
   </g>
 </svg>
