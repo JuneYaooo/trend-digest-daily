@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
+  <title id="t">工作流程</title>
+  <desc id="d">输入：四个公开热榜、你的领域关键词、本地已见缓存；脚本处理：跨平台去重、名次融合排序、领域匹配、连续在榜与回潮；输出：当天的选题日报</desc>
+  <rect width="1200" height="300" rx="20" fill="#FFFBF5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#D6C7B4"/>
+    </marker>
+  </defs>
+  <g font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+    <!-- 输入 -->
+    <text x="48" y="54" font-size="14" font-weight="700" fill="#A8A29E" letter-spacing="2">① 输入</text>
+    <rect x="48" y="72" width="300" height="184" rx="14" fill="#FFFFFF" stroke="#EADFD0"/>
+    <g font-size="16" fill="#44403C">
+      <rect x="72" y="96" width="56" height="28" rx="14" fill="#FDECEC"/><text x="100" y="115" text-anchor="middle" fill="#DC2626" font-weight="600">微博</text>
+      <rect x="136" y="96" width="56" height="28" rx="14" fill="#E6F0FC"/><text x="164" y="115" text-anchor="middle" fill="#1D64C8" font-weight="600">知乎</text>
+      <rect x="200" y="96" width="56" height="28" rx="14" fill="#ECEEFC"/><text x="228" y="115" text-anchor="middle" fill="#3B48C4" font-weight="600">百度</text>
+      <rect x="264" y="96" width="50" height="28" rx="14" fill="#FDEBDD"/><text x="289" y="115" text-anchor="middle" fill="#EA580C" font-weight="600">HN</text>
+      <text x="72" y="160">公开热榜，各取前 30 条</text>
+      <text x="72" y="192">你在 config 里写的领域关键词</text>
+      <text x="72" y="224">本地缓存：前几天谁上过榜</text>
+    </g>
+
+    <line x1="356" y1="164" x2="414" y2="164" stroke="#D6C7B4" stroke-width="2.5" marker-end="url(#arr)"/>
+
+    <!-- 处理 -->
+    <text x="424" y="54" font-size="14" font-weight="700" fill="#A8A29E" letter-spacing="2">② 脚本整理</text>
+    <rect x="424" y="72" width="352" height="184" rx="14" fill="#FFFFFF" stroke="#EADFD0"/>
+    <g font-size="16" fill="#44403C">
+      <circle cx="452" cy="110" r="5" fill="#EA580C"/><text x="468" y="116">跨平台合并同一话题</text>
+      <circle cx="452" cy="146" r="5" fill="#EA580C"/><text x="468" y="152">按各平台名次融合排序</text>
+      <circle cx="452" cy="182" r="5" fill="#EA580C"/><text x="468" y="188">标出命中你领域的关键词</text>
+      <circle cx="452" cy="218" r="5" fill="#EA580C"/><text x="468" y="224">新上榜 · 连续在榜 · 回潮</text>
+    </g>
+
+    <line x1="784" y1="164" x2="842" y2="164" stroke="#D6C7B4" stroke-width="2.5" marker-end="url(#arr)"/>
+
+    <!-- 输出 -->
+    <text x="852" y="54" font-size="14" font-weight="700" fill="#A8A29E" letter-spacing="2">③ Agent 写日报</text>
+    <rect x="852" y="72" width="300" height="184" rx="14" fill="#1C1917"/>
+    <rect x="852" y="72" width="300" height="6" rx="3" fill="#EA580C"/>
+    <g font-size="16">
+      <text x="876" y="116" fill="#FFFFFF" font-weight="700" font-size="18">当天的选题日报</text>
+      <text x="876" y="156" fill="#FBD5B5">今日必看：3–5 张选题卡</text>
+      <text x="876" y="188" fill="#D6D3D1">次级观察：值得蹲的话题</text>
+      <text x="876" y="220" fill="#D6D3D1">全源速览：各平台榜单节选</text>
+    </g>
+  </g>
+</svg>
